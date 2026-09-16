@@ -1,0 +1,3007 @@
+[
+  {
+    "id": 0,
+    "source": "Accordion",
+    "label": "akordeon"
+  },
+  {
+    "id": 1,
+    "source": "Adhesive tape",
+    "label": "selotip"
+  },
+  {
+    "id": 2,
+    "source": "Aircraft",
+    "label": "pesawat"
+  },
+  {
+    "id": 3,
+    "source": "Airplane",
+    "label": "pesawat"
+  },
+  {
+    "id": 4,
+    "source": "Alarm clock",
+    "label": "jam weker"
+  },
+  {
+    "id": 5,
+    "source": "Alpaca",
+    "label": "alpaka"
+  },
+  {
+    "id": 6,
+    "source": "Ambulance",
+    "label": "ambulans"
+  },
+  {
+    "id": 7,
+    "source": "Animal",
+    "label": "hewan"
+  },
+  {
+    "id": 8,
+    "source": "Ant",
+    "label": "semut"
+  },
+  {
+    "id": 9,
+    "source": "Antelope",
+    "label": "antelop"
+  },
+  {
+    "id": 10,
+    "source": "Apple",
+    "label": "apel"
+  },
+  {
+    "id": 11,
+    "source": "Armadillo",
+    "label": "armadilo"
+  },
+  {
+    "id": 12,
+    "source": "Artichoke",
+    "label": "articok"
+  },
+  {
+    "id": 13,
+    "source": "Auto part",
+    "label": "suku cadang kendaraan"
+  },
+  {
+    "id": 14,
+    "source": "Axe",
+    "label": "kapak"
+  },
+  {
+    "id": 15,
+    "source": "Backpack",
+    "label": "ransel"
+  },
+  {
+    "id": 16,
+    "source": "Bagel",
+    "label": "roti bagel"
+  },
+  {
+    "id": 17,
+    "source": "Baked goods",
+    "label": "roti atau kue"
+  },
+  {
+    "id": 18,
+    "source": "Balance beam",
+    "label": "balok keseimbangan"
+  },
+  {
+    "id": 19,
+    "source": "Ball",
+    "label": "bola"
+  },
+  {
+    "id": 20,
+    "source": "Balloon",
+    "label": "balon"
+  },
+  {
+    "id": 21,
+    "source": "Banana",
+    "label": "pisang"
+  },
+  {
+    "id": 22,
+    "source": "Band-aid",
+    "label": "plester luka"
+  },
+  {
+    "id": 23,
+    "source": "Banjo",
+    "label": "banjo"
+  },
+  {
+    "id": 24,
+    "source": "Barge",
+    "label": "tongkang"
+  },
+  {
+    "id": 25,
+    "source": "Barrel",
+    "label": "tong"
+  },
+  {
+    "id": 26,
+    "source": "Baseball bat",
+    "label": "tongkat bisbol"
+  },
+  {
+    "id": 27,
+    "source": "Baseball glove",
+    "label": "sarung tangan bisbol"
+  },
+  {
+    "id": 28,
+    "source": "Bat (Animal)",
+    "label": "kelelawar"
+  },
+  {
+    "id": 29,
+    "source": "Bathroom accessory",
+    "label": "perlengkapan kamar mandi"
+  },
+  {
+    "id": 30,
+    "source": "Bathroom cabinet",
+    "label": "lemari kamar mandi"
+  },
+  {
+    "id": 31,
+    "source": "Bathtub",
+    "label": "bak mandi"
+  },
+  {
+    "id": 32,
+    "source": "Beaker",
+    "label": "gelas laboratorium"
+  },
+  {
+    "id": 33,
+    "source": "Bear",
+    "label": "beruang"
+  },
+  {
+    "id": 34,
+    "source": "Bed",
+    "label": "tempat tidur"
+  },
+  {
+    "id": 35,
+    "source": "Bee",
+    "label": "lebah"
+  },
+  {
+    "id": 36,
+    "source": "Beehive",
+    "label": "sarang lebah"
+  },
+  {
+    "id": 37,
+    "source": "Beer",
+    "label": "bir"
+  },
+  {
+    "id": 38,
+    "source": "Beetle",
+    "label": "kumbang"
+  },
+  {
+    "id": 39,
+    "source": "Bell pepper",
+    "label": "paprika"
+  },
+  {
+    "id": 40,
+    "source": "Belt",
+    "label": "ikat pinggang"
+  },
+  {
+    "id": 41,
+    "source": "Bench",
+    "label": "bangku"
+  },
+  {
+    "id": 42,
+    "source": "Bicycle",
+    "label": "sepeda"
+  },
+  {
+    "id": 43,
+    "source": "Bicycle helmet",
+    "label": "helm sepeda"
+  },
+  {
+    "id": 44,
+    "source": "Bicycle wheel",
+    "label": "roda sepeda"
+  },
+  {
+    "id": 45,
+    "source": "Bidet",
+    "label": "bidet"
+  },
+  {
+    "id": 46,
+    "source": "Billboard",
+    "label": "papan reklame"
+  },
+  {
+    "id": 47,
+    "source": "Billiard table",
+    "label": "meja biliar"
+  },
+  {
+    "id": 48,
+    "source": "Binoculars",
+    "label": "teropong"
+  },
+  {
+    "id": 49,
+    "source": "Bird",
+    "label": "burung"
+  },
+  {
+    "id": 50,
+    "source": "Blender",
+    "label": "blender"
+  },
+  {
+    "id": 51,
+    "source": "Blue jay",
+    "label": "burung jay biru"
+  },
+  {
+    "id": 52,
+    "source": "Boat",
+    "label": "perahu"
+  },
+  {
+    "id": 53,
+    "source": "Bomb",
+    "label": "benda menyerupai bom"
+  },
+  {
+    "id": 54,
+    "source": "Book",
+    "label": "buku"
+  },
+  {
+    "id": 55,
+    "source": "Bookcase",
+    "label": "rak buku"
+  },
+  {
+    "id": 56,
+    "source": "Boot",
+    "label": "sepatu bot"
+  },
+  {
+    "id": 57,
+    "source": "Bottle",
+    "label": "botol"
+  },
+  {
+    "id": 58,
+    "source": "Bottle opener",
+    "label": "pembuka botol"
+  },
+  {
+    "id": 59,
+    "source": "Bow and arrow",
+    "label": "busur dan anak panah"
+  },
+  {
+    "id": 60,
+    "source": "Bowl",
+    "label": "mangkuk"
+  },
+  {
+    "id": 61,
+    "source": "Bowling equipment",
+    "label": "peralatan boling"
+  },
+  {
+    "id": 62,
+    "source": "Box",
+    "label": "kotak"
+  },
+  {
+    "id": 63,
+    "source": "Boy",
+    "label": "orang"
+  },
+  {
+    "id": 64,
+    "source": "Brassiere",
+    "label": "bra"
+  },
+  {
+    "id": 65,
+    "source": "Bread",
+    "label": "roti"
+  },
+  {
+    "id": 66,
+    "source": "Briefcase",
+    "label": "tas kerja"
+  },
+  {
+    "id": 67,
+    "source": "Broccoli",
+    "label": "brokoli"
+  },
+  {
+    "id": 68,
+    "source": "Bronze sculpture",
+    "label": "patung perunggu"
+  },
+  {
+    "id": 69,
+    "source": "Brown bear",
+    "label": "beruang cokelat"
+  },
+  {
+    "id": 70,
+    "source": "Building",
+    "label": "bangunan"
+  },
+  {
+    "id": 71,
+    "source": "Bull",
+    "label": "banteng"
+  },
+  {
+    "id": 72,
+    "source": "Burrito",
+    "label": "burrito"
+  },
+  {
+    "id": 73,
+    "source": "Bus",
+    "label": "bus"
+  },
+  {
+    "id": 74,
+    "source": "Bust",
+    "label": "patung dada"
+  },
+  {
+    "id": 75,
+    "source": "Butterfly",
+    "label": "kupu-kupu"
+  },
+  {
+    "id": 76,
+    "source": "Cabbage",
+    "label": "kubis"
+  },
+  {
+    "id": 77,
+    "source": "Cabinetry",
+    "label": "lemari"
+  },
+  {
+    "id": 78,
+    "source": "Cake",
+    "label": "kue"
+  },
+  {
+    "id": 79,
+    "source": "Cake stand",
+    "label": "dudukan kue"
+  },
+  {
+    "id": 80,
+    "source": "Calculator",
+    "label": "kalkulator"
+  },
+  {
+    "id": 81,
+    "source": "Camel",
+    "label": "unta"
+  },
+  {
+    "id": 82,
+    "source": "Camera",
+    "label": "kamera"
+  },
+  {
+    "id": 83,
+    "source": "Can opener",
+    "label": "pembuka kaleng"
+  },
+  {
+    "id": 84,
+    "source": "Canary",
+    "label": "burung kenari"
+  },
+  {
+    "id": 85,
+    "source": "Candle",
+    "label": "lilin"
+  },
+  {
+    "id": 86,
+    "source": "Candy",
+    "label": "permen"
+  },
+  {
+    "id": 87,
+    "source": "Cannon",
+    "label": "meriam"
+  },
+  {
+    "id": 88,
+    "source": "Canoe",
+    "label": "kano"
+  },
+  {
+    "id": 89,
+    "source": "Cantaloupe",
+    "label": "melon"
+  },
+  {
+    "id": 90,
+    "source": "Car",
+    "label": "mobil"
+  },
+  {
+    "id": 91,
+    "source": "Carnivore",
+    "label": "hewan"
+  },
+  {
+    "id": 92,
+    "source": "Carrot",
+    "label": "wortel"
+  },
+  {
+    "id": 93,
+    "source": "Cart",
+    "label": "gerobak"
+  },
+  {
+    "id": 94,
+    "source": "Cassette deck",
+    "label": "pemutar kaset"
+  },
+  {
+    "id": 95,
+    "source": "Castle",
+    "label": "kastel"
+  },
+  {
+    "id": 96,
+    "source": "Cat",
+    "label": "kucing"
+  },
+  {
+    "id": 97,
+    "source": "Cat furniture",
+    "label": "perabot kucing"
+  },
+  {
+    "id": 98,
+    "source": "Caterpillar",
+    "label": "ulat"
+  },
+  {
+    "id": 99,
+    "source": "Cattle",
+    "label": "sapi"
+  },
+  {
+    "id": 100,
+    "source": "Ceiling fan",
+    "label": "kipas angin langit-langit"
+  },
+  {
+    "id": 101,
+    "source": "Cello",
+    "label": "selo"
+  },
+  {
+    "id": 102,
+    "source": "Centipede",
+    "label": "kelabang"
+  },
+  {
+    "id": 103,
+    "source": "Chainsaw",
+    "label": "gergaji mesin"
+  },
+  {
+    "id": 104,
+    "source": "Chair",
+    "label": "kursi"
+  },
+  {
+    "id": 105,
+    "source": "Cheese",
+    "label": "keju"
+  },
+  {
+    "id": 106,
+    "source": "Cheetah",
+    "label": "citah"
+  },
+  {
+    "id": 107,
+    "source": "Chest of drawers",
+    "label": "lemari laci"
+  },
+  {
+    "id": 108,
+    "source": "Chicken",
+    "label": "ayam"
+  },
+  {
+    "id": 109,
+    "source": "Chime",
+    "label": "lonceng"
+  },
+  {
+    "id": 110,
+    "source": "Chisel",
+    "label": "pahat"
+  },
+  {
+    "id": 111,
+    "source": "Chopsticks",
+    "label": "sumpit"
+  },
+  {
+    "id": 112,
+    "source": "Christmas tree",
+    "label": "pohon Natal"
+  },
+  {
+    "id": 113,
+    "source": "Clock",
+    "label": "jam"
+  },
+  {
+    "id": 114,
+    "source": "Closet",
+    "label": "lemari"
+  },
+  {
+    "id": 115,
+    "source": "Clothing",
+    "label": "pakaian"
+  },
+  {
+    "id": 116,
+    "source": "Coat",
+    "label": "mantel"
+  },
+  {
+    "id": 117,
+    "source": "Cocktail",
+    "label": "minuman koktail"
+  },
+  {
+    "id": 118,
+    "source": "Cocktail shaker",
+    "label": "pengocok minuman"
+  },
+  {
+    "id": 119,
+    "source": "Coconut",
+    "label": "kelapa"
+  },
+  {
+    "id": 120,
+    "source": "Coffee",
+    "label": "kopi"
+  },
+  {
+    "id": 121,
+    "source": "Coffee cup",
+    "label": "cangkir"
+  },
+  {
+    "id": 122,
+    "source": "Coffee table",
+    "label": "meja kecil"
+  },
+  {
+    "id": 123,
+    "source": "Coffeemaker",
+    "label": "mesin kopi"
+  },
+  {
+    "id": 124,
+    "source": "Coin",
+    "label": "uang logam, nominal belum diketahui"
+  },
+  {
+    "id": 125,
+    "source": "Common fig",
+    "label": "buah ara"
+  },
+  {
+    "id": 126,
+    "source": "Common sunflower",
+    "label": "bunga matahari"
+  },
+  {
+    "id": 127,
+    "source": "Computer keyboard",
+    "label": "papan ketik"
+  },
+  {
+    "id": 128,
+    "source": "Computer monitor",
+    "label": "monitor komputer"
+  },
+  {
+    "id": 129,
+    "source": "Computer mouse",
+    "label": "mouse komputer"
+  },
+  {
+    "id": 130,
+    "source": "Container",
+    "label": "wadah"
+  },
+  {
+    "id": 131,
+    "source": "Convenience store",
+    "label": "minimarket"
+  },
+  {
+    "id": 132,
+    "source": "Cookie",
+    "label": "kukis"
+  },
+  {
+    "id": 133,
+    "source": "Cooking spray",
+    "label": "semprotan minyak masak"
+  },
+  {
+    "id": 134,
+    "source": "Corded phone",
+    "label": "telepon kabel"
+  },
+  {
+    "id": 135,
+    "source": "Cosmetics",
+    "label": "kosmetik"
+  },
+  {
+    "id": 136,
+    "source": "Couch",
+    "label": "sofa"
+  },
+  {
+    "id": 137,
+    "source": "Countertop",
+    "label": "permukaan meja dapur"
+  },
+  {
+    "id": 138,
+    "source": "Cowboy hat",
+    "label": "topi koboi"
+  },
+  {
+    "id": 139,
+    "source": "Crab",
+    "label": "kepiting"
+  },
+  {
+    "id": 140,
+    "source": "Cream",
+    "label": "krim"
+  },
+  {
+    "id": 141,
+    "source": "Cricket ball",
+    "label": "bola kriket"
+  },
+  {
+    "id": 142,
+    "source": "Crocodile",
+    "label": "buaya"
+  },
+  {
+    "id": 143,
+    "source": "Croissant",
+    "label": "roti kroisan"
+  },
+  {
+    "id": 144,
+    "source": "Crown",
+    "label": "mahkota"
+  },
+  {
+    "id": 145,
+    "source": "Crutch",
+    "label": "tongkat kruk"
+  },
+  {
+    "id": 146,
+    "source": "Cucumber",
+    "label": "mentimun"
+  },
+  {
+    "id": 147,
+    "source": "Cupboard",
+    "label": "lemari"
+  },
+  {
+    "id": 148,
+    "source": "Curtain",
+    "label": "tirai"
+  },
+  {
+    "id": 149,
+    "source": "Cutting board",
+    "label": "talenan"
+  },
+  {
+    "id": 150,
+    "source": "Dagger",
+    "label": "belati"
+  },
+  {
+    "id": 151,
+    "source": "Dairy Product",
+    "label": "produk susu"
+  },
+  {
+    "id": 152,
+    "source": "Deer",
+    "label": "rusa"
+  },
+  {
+    "id": 153,
+    "source": "Desk",
+    "label": "meja kerja"
+  },
+  {
+    "id": 154,
+    "source": "Dessert",
+    "label": "hidangan penutup"
+  },
+  {
+    "id": 155,
+    "source": "Diaper",
+    "label": "popok"
+  },
+  {
+    "id": 156,
+    "source": "Dice",
+    "label": "dadu"
+  },
+  {
+    "id": 157,
+    "source": "Digital clock",
+    "label": "jam digital"
+  },
+  {
+    "id": 158,
+    "source": "Dinosaur",
+    "label": "dinosaurus"
+  },
+  {
+    "id": 159,
+    "source": "Dishwasher",
+    "label": "mesin pencuci piring"
+  },
+  {
+    "id": 160,
+    "source": "Dog",
+    "label": "anjing"
+  },
+  {
+    "id": 161,
+    "source": "Dog bed",
+    "label": "tempat tidur anjing"
+  },
+  {
+    "id": 162,
+    "source": "Doll",
+    "label": "boneka"
+  },
+  {
+    "id": 163,
+    "source": "Dolphin",
+    "label": "lumba-lumba"
+  },
+  {
+    "id": 164,
+    "source": "Door",
+    "label": "pintu"
+  },
+  {
+    "id": 165,
+    "source": "Door handle",
+    "label": "gagang pintu"
+  },
+  {
+    "id": 166,
+    "source": "Doughnut",
+    "label": "donat"
+  },
+  {
+    "id": 167,
+    "source": "Dragonfly",
+    "label": "capung"
+  },
+  {
+    "id": 168,
+    "source": "Drawer",
+    "label": "laci"
+  },
+  {
+    "id": 169,
+    "source": "Dress",
+    "label": "gaun"
+  },
+  {
+    "id": 170,
+    "source": "Drill (Tool)",
+    "label": "bor"
+  },
+  {
+    "id": 171,
+    "source": "Drink",
+    "label": "minuman"
+  },
+  {
+    "id": 172,
+    "source": "Drinking straw",
+    "label": "sedotan"
+  },
+  {
+    "id": 173,
+    "source": "Drum",
+    "label": "drum"
+  },
+  {
+    "id": 174,
+    "source": "Duck",
+    "label": "bebek"
+  },
+  {
+    "id": 175,
+    "source": "Dumbbell",
+    "label": "barbel"
+  },
+  {
+    "id": 176,
+    "source": "Eagle",
+    "label": "elang"
+  },
+  {
+    "id": 177,
+    "source": "Earrings",
+    "label": "anting"
+  },
+  {
+    "id": 178,
+    "source": "Egg (Food)",
+    "label": "telur"
+  },
+  {
+    "id": 179,
+    "source": "Elephant",
+    "label": "gajah"
+  },
+  {
+    "id": 180,
+    "source": "Envelope",
+    "label": "amplop"
+  },
+  {
+    "id": 181,
+    "source": "Eraser",
+    "label": "penghapus"
+  },
+  {
+    "id": 182,
+    "source": "Face powder",
+    "label": "bedak"
+  },
+  {
+    "id": 183,
+    "source": "Facial tissue holder",
+    "label": "tempat tisu"
+  },
+  {
+    "id": 184,
+    "source": "Falcon",
+    "label": "elang"
+  },
+  {
+    "id": 185,
+    "source": "Fashion accessory",
+    "label": "aksesori pakaian"
+  },
+  {
+    "id": 186,
+    "source": "Fast food",
+    "label": "makanan cepat saji"
+  },
+  {
+    "id": 187,
+    "source": "Fax",
+    "label": "mesin faks"
+  },
+  {
+    "id": 188,
+    "source": "Fedora",
+    "label": "topi fedora"
+  },
+  {
+    "id": 189,
+    "source": "Filing cabinet",
+    "label": "lemari arsip"
+  },
+  {
+    "id": 190,
+    "source": "Fire hydrant",
+    "label": "hidran"
+  },
+  {
+    "id": 191,
+    "source": "Fireplace",
+    "label": "perapian"
+  },
+  {
+    "id": 192,
+    "source": "Fish",
+    "label": "ikan"
+  },
+  {
+    "id": 193,
+    "source": "Flag",
+    "label": "bendera"
+  },
+  {
+    "id": 194,
+    "source": "Flashlight",
+    "label": "senter"
+  },
+  {
+    "id": 195,
+    "source": "Flower",
+    "label": "bunga"
+  },
+  {
+    "id": 196,
+    "source": "Flowerpot",
+    "label": "pot bunga"
+  },
+  {
+    "id": 197,
+    "source": "Flute",
+    "label": "seruling"
+  },
+  {
+    "id": 198,
+    "source": "Flying disc",
+    "label": "frisbee"
+  },
+  {
+    "id": 199,
+    "source": "Food",
+    "label": "makanan"
+  },
+  {
+    "id": 200,
+    "source": "Food processor",
+    "label": "pengolah makanan"
+  },
+  {
+    "id": 201,
+    "source": "Football",
+    "label": "bola sepak"
+  },
+  {
+    "id": 202,
+    "source": "Football helmet",
+    "label": "helm olahraga"
+  },
+  {
+    "id": 203,
+    "source": "Footwear",
+    "label": "alas kaki"
+  },
+  {
+    "id": 204,
+    "source": "Fork",
+    "label": "garpu"
+  },
+  {
+    "id": 205,
+    "source": "Fountain",
+    "label": "air mancur"
+  },
+  {
+    "id": 206,
+    "source": "Fox",
+    "label": "rubah"
+  },
+  {
+    "id": 207,
+    "source": "French fries",
+    "label": "kentang goreng"
+  },
+  {
+    "id": 208,
+    "source": "French horn",
+    "label": "terompet horn"
+  },
+  {
+    "id": 209,
+    "source": "Frog",
+    "label": "katak"
+  },
+  {
+    "id": 210,
+    "source": "Fruit",
+    "label": "buah"
+  },
+  {
+    "id": 211,
+    "source": "Frying pan",
+    "label": "penggorengan"
+  },
+  {
+    "id": 212,
+    "source": "Furniture",
+    "label": "perabot"
+  },
+  {
+    "id": 213,
+    "source": "Garden Asparagus",
+    "label": "asparagus"
+  },
+  {
+    "id": 214,
+    "source": "Gas stove",
+    "label": "kompor gas"
+  },
+  {
+    "id": 215,
+    "source": "Giraffe",
+    "label": "jerapah"
+  },
+  {
+    "id": 216,
+    "source": "Girl",
+    "label": "orang"
+  },
+  {
+    "id": 217,
+    "source": "Glasses",
+    "label": "kacamata"
+  },
+  {
+    "id": 218,
+    "source": "Glove",
+    "label": "sarung tangan"
+  },
+  {
+    "id": 219,
+    "source": "Goat",
+    "label": "kambing"
+  },
+  {
+    "id": 220,
+    "source": "Goggles",
+    "label": "kacamata pelindung"
+  },
+  {
+    "id": 221,
+    "source": "Goldfish",
+    "label": "ikan mas"
+  },
+  {
+    "id": 222,
+    "source": "Golf ball",
+    "label": "bola golf"
+  },
+  {
+    "id": 223,
+    "source": "Golf cart",
+    "label": "mobil golf"
+  },
+  {
+    "id": 224,
+    "source": "Gondola",
+    "label": "gondola"
+  },
+  {
+    "id": 225,
+    "source": "Goose",
+    "label": "angsa"
+  },
+  {
+    "id": 226,
+    "source": "Grape",
+    "label": "anggur"
+  },
+  {
+    "id": 227,
+    "source": "Grapefruit",
+    "label": "jeruk grapefruit"
+  },
+  {
+    "id": 228,
+    "source": "Grinder",
+    "label": "mesin penggiling"
+  },
+  {
+    "id": 229,
+    "source": "Guacamole",
+    "label": "saus alpukat"
+  },
+  {
+    "id": 230,
+    "source": "Guitar",
+    "label": "gitar"
+  },
+  {
+    "id": 231,
+    "source": "Hair dryer",
+    "label": "pengering rambut"
+  },
+  {
+    "id": 232,
+    "source": "Hair spray",
+    "label": "semprotan rambut"
+  },
+  {
+    "id": 233,
+    "source": "Hamburger",
+    "label": "hamburger"
+  },
+  {
+    "id": 234,
+    "source": "Hammer",
+    "label": "palu"
+  },
+  {
+    "id": 235,
+    "source": "Hamster",
+    "label": "hamster"
+  },
+  {
+    "id": 236,
+    "source": "Hand dryer",
+    "label": "pengering tangan"
+  },
+  {
+    "id": 237,
+    "source": "Handbag",
+    "label": "tas tangan"
+  },
+  {
+    "id": 238,
+    "source": "Handgun",
+    "label": "benda menyerupai pistol"
+  },
+  {
+    "id": 239,
+    "source": "Harbor seal",
+    "label": "anjing laut"
+  },
+  {
+    "id": 240,
+    "source": "Harmonica",
+    "label": "harmonika"
+  },
+  {
+    "id": 241,
+    "source": "Harp",
+    "label": "harpa"
+  },
+  {
+    "id": 242,
+    "source": "Harpsichord",
+    "label": "harpsikord"
+  },
+  {
+    "id": 243,
+    "source": "Hat",
+    "label": "topi"
+  },
+  {
+    "id": 244,
+    "source": "Headphones",
+    "label": "headphone"
+  },
+  {
+    "id": 245,
+    "source": "Heater",
+    "label": "pemanas"
+  },
+  {
+    "id": 246,
+    "source": "Hedgehog",
+    "label": "landak"
+  },
+  {
+    "id": 247,
+    "source": "Helicopter",
+    "label": "helikopter"
+  },
+  {
+    "id": 248,
+    "source": "Helmet",
+    "label": "helm"
+  },
+  {
+    "id": 249,
+    "source": "High heels",
+    "label": "sepatu hak tinggi"
+  },
+  {
+    "id": 250,
+    "source": "Hiking equipment",
+    "label": "peralatan mendaki"
+  },
+  {
+    "id": 251,
+    "source": "Hippopotamus",
+    "label": "kuda nil"
+  },
+  {
+    "id": 252,
+    "source": "Home appliance",
+    "label": "peralatan rumah tangga"
+  },
+  {
+    "id": 253,
+    "source": "Honeycomb",
+    "label": "sarang madu"
+  },
+  {
+    "id": 254,
+    "source": "Horizontal bar",
+    "label": "palang senam"
+  },
+  {
+    "id": 255,
+    "source": "Horse",
+    "label": "kuda"
+  },
+  {
+    "id": 256,
+    "source": "Hot dog",
+    "label": "roti sosis"
+  },
+  {
+    "id": 257,
+    "source": "House",
+    "label": "rumah"
+  },
+  {
+    "id": 258,
+    "source": "Houseplant",
+    "label": "tanaman dalam pot"
+  },
+  {
+    "id": 259,
+    "source": "Human arm",
+    "label": "lengan"
+  },
+  {
+    "id": 260,
+    "source": "Human beard",
+    "label": "janggut"
+  },
+  {
+    "id": 261,
+    "source": "Human body",
+    "label": "tubuh"
+  },
+  {
+    "id": 262,
+    "source": "Human ear",
+    "label": "telinga"
+  },
+  {
+    "id": 263,
+    "source": "Human eye",
+    "label": "mata"
+  },
+  {
+    "id": 264,
+    "source": "Human face",
+    "label": "wajah"
+  },
+  {
+    "id": 265,
+    "source": "Human foot",
+    "label": "kaki"
+  },
+  {
+    "id": 266,
+    "source": "Human hair",
+    "label": "rambut"
+  },
+  {
+    "id": 267,
+    "source": "Human hand",
+    "label": "tangan"
+  },
+  {
+    "id": 268,
+    "source": "Human head",
+    "label": "kepala"
+  },
+  {
+    "id": 269,
+    "source": "Human leg",
+    "label": "tungkai kaki"
+  },
+  {
+    "id": 270,
+    "source": "Human mouth",
+    "label": "mulut"
+  },
+  {
+    "id": 271,
+    "source": "Human nose",
+    "label": "hidung"
+  },
+  {
+    "id": 272,
+    "source": "Humidifier",
+    "label": "pelembap udara"
+  },
+  {
+    "id": 273,
+    "source": "Ice cream",
+    "label": "es krim"
+  },
+  {
+    "id": 274,
+    "source": "Indoor rower",
+    "label": "alat dayung olahraga"
+  },
+  {
+    "id": 275,
+    "source": "Infant bed",
+    "label": "ranjang bayi"
+  },
+  {
+    "id": 276,
+    "source": "Insect",
+    "label": "serangga"
+  },
+  {
+    "id": 277,
+    "source": "Invertebrate",
+    "label": "hewan kecil"
+  },
+  {
+    "id": 278,
+    "source": "Ipod",
+    "label": "pemutar musik"
+  },
+  {
+    "id": 279,
+    "source": "Isopod",
+    "label": "isopoda"
+  },
+  {
+    "id": 280,
+    "source": "Jacket",
+    "label": "jaket"
+  },
+  {
+    "id": 281,
+    "source": "Jacuzzi",
+    "label": "bak jacuzzi"
+  },
+  {
+    "id": 282,
+    "source": "Jaguar (Animal)",
+    "label": "jaguar"
+  },
+  {
+    "id": 283,
+    "source": "Jeans",
+    "label": "celana jins"
+  },
+  {
+    "id": 284,
+    "source": "Jellyfish",
+    "label": "ubur-ubur"
+  },
+  {
+    "id": 285,
+    "source": "Jet ski",
+    "label": "jet ski"
+  },
+  {
+    "id": 286,
+    "source": "Jug",
+    "label": "teko"
+  },
+  {
+    "id": 287,
+    "source": "Juice",
+    "label": "jus"
+  },
+  {
+    "id": 288,
+    "source": "Kangaroo",
+    "label": "kanguru"
+  },
+  {
+    "id": 289,
+    "source": "Kettle",
+    "label": "ketel"
+  },
+  {
+    "id": 290,
+    "source": "Kitchen & dining room table",
+    "label": "meja makan"
+  },
+  {
+    "id": 291,
+    "source": "Kitchen appliance",
+    "label": "peralatan dapur"
+  },
+  {
+    "id": 292,
+    "source": "Kitchen knife",
+    "label": "pisau dapur"
+  },
+  {
+    "id": 293,
+    "source": "Kitchen utensil",
+    "label": "alat masak"
+  },
+  {
+    "id": 294,
+    "source": "Kitchenware",
+    "label": "perlengkapan dapur"
+  },
+  {
+    "id": 295,
+    "source": "Kite",
+    "label": "layang-layang"
+  },
+  {
+    "id": 296,
+    "source": "Knife",
+    "label": "pisau"
+  },
+  {
+    "id": 297,
+    "source": "Koala",
+    "label": "koala"
+  },
+  {
+    "id": 298,
+    "source": "Ladder",
+    "label": "tangga portabel"
+  },
+  {
+    "id": 299,
+    "source": "Ladle",
+    "label": "sendok sayur"
+  },
+  {
+    "id": 300,
+    "source": "Ladybug",
+    "label": "kumbang koksi"
+  },
+  {
+    "id": 301,
+    "source": "Lamp",
+    "label": "lampu"
+  },
+  {
+    "id": 302,
+    "source": "Land vehicle",
+    "label": "kendaraan"
+  },
+  {
+    "id": 303,
+    "source": "Lantern",
+    "label": "lentera"
+  },
+  {
+    "id": 304,
+    "source": "Laptop",
+    "label": "laptop"
+  },
+  {
+    "id": 305,
+    "source": "Lavender (Plant)",
+    "label": "lavender"
+  },
+  {
+    "id": 306,
+    "source": "Lemon",
+    "label": "lemon"
+  },
+  {
+    "id": 307,
+    "source": "Leopard",
+    "label": "macan tutul"
+  },
+  {
+    "id": 308,
+    "source": "Light bulb",
+    "label": "bohlam"
+  },
+  {
+    "id": 309,
+    "source": "Light switch",
+    "label": "sakelar lampu"
+  },
+  {
+    "id": 310,
+    "source": "Lighthouse",
+    "label": "mercusuar"
+  },
+  {
+    "id": 311,
+    "source": "Lily",
+    "label": "bunga lili"
+  },
+  {
+    "id": 312,
+    "source": "Limousine",
+    "label": "limosin"
+  },
+  {
+    "id": 313,
+    "source": "Lion",
+    "label": "singa"
+  },
+  {
+    "id": 314,
+    "source": "Lipstick",
+    "label": "lipstik"
+  },
+  {
+    "id": 315,
+    "source": "Lizard",
+    "label": "kadal"
+  },
+  {
+    "id": 316,
+    "source": "Lobster",
+    "label": "lobster"
+  },
+  {
+    "id": 317,
+    "source": "Loveseat",
+    "label": "sofa kecil"
+  },
+  {
+    "id": 318,
+    "source": "Luggage and bags",
+    "label": "tas atau koper"
+  },
+  {
+    "id": 319,
+    "source": "Lynx",
+    "label": "kucing lynx"
+  },
+  {
+    "id": 320,
+    "source": "Magpie",
+    "label": "burung magpie"
+  },
+  {
+    "id": 321,
+    "source": "Mammal",
+    "label": "hewan"
+  },
+  {
+    "id": 322,
+    "source": "Man",
+    "label": "orang"
+  },
+  {
+    "id": 323,
+    "source": "Mango",
+    "label": "mangga"
+  },
+  {
+    "id": 324,
+    "source": "Maple",
+    "label": "pohon maple"
+  },
+  {
+    "id": 325,
+    "source": "Maracas",
+    "label": "marakas"
+  },
+  {
+    "id": 326,
+    "source": "Marine invertebrates",
+    "label": "hewan laut"
+  },
+  {
+    "id": 327,
+    "source": "Marine mammal",
+    "label": "hewan laut"
+  },
+  {
+    "id": 328,
+    "source": "Measuring cup",
+    "label": "gelas ukur"
+  },
+  {
+    "id": 329,
+    "source": "Mechanical fan",
+    "label": "kipas angin"
+  },
+  {
+    "id": 330,
+    "source": "Medical equipment",
+    "label": "peralatan medis"
+  },
+  {
+    "id": 331,
+    "source": "Microphone",
+    "label": "mikrofon"
+  },
+  {
+    "id": 332,
+    "source": "Microwave oven",
+    "label": "microwave"
+  },
+  {
+    "id": 333,
+    "source": "Milk",
+    "label": "susu"
+  },
+  {
+    "id": 334,
+    "source": "Miniskirt",
+    "label": "rok mini"
+  },
+  {
+    "id": 335,
+    "source": "Mirror",
+    "label": "cermin"
+  },
+  {
+    "id": 336,
+    "source": "Missile",
+    "label": "benda menyerupai rudal"
+  },
+  {
+    "id": 337,
+    "source": "Mixer",
+    "label": "mixer"
+  },
+  {
+    "id": 338,
+    "source": "Mixing bowl",
+    "label": "mangkuk adonan"
+  },
+  {
+    "id": 339,
+    "source": "Mobile phone",
+    "label": "ponsel"
+  },
+  {
+    "id": 340,
+    "source": "Monkey",
+    "label": "monyet"
+  },
+  {
+    "id": 341,
+    "source": "Moths and butterflies",
+    "label": "kupu-kupu atau ngengat"
+  },
+  {
+    "id": 342,
+    "source": "Motorcycle",
+    "label": "sepeda motor"
+  },
+  {
+    "id": 343,
+    "source": "Mouse",
+    "label": "tikus"
+  },
+  {
+    "id": 344,
+    "source": "Muffin",
+    "label": "kue mufin"
+  },
+  {
+    "id": 345,
+    "source": "Mug",
+    "label": "cangkir"
+  },
+  {
+    "id": 346,
+    "source": "Mule",
+    "label": "bagal"
+  },
+  {
+    "id": 347,
+    "source": "Mushroom",
+    "label": "jamur"
+  },
+  {
+    "id": 348,
+    "source": "Musical instrument",
+    "label": "alat musik"
+  },
+  {
+    "id": 349,
+    "source": "Musical keyboard",
+    "label": "kibor musik"
+  },
+  {
+    "id": 350,
+    "source": "Nail (Construction)",
+    "label": "paku"
+  },
+  {
+    "id": 351,
+    "source": "Necklace",
+    "label": "kalung"
+  },
+  {
+    "id": 352,
+    "source": "Nightstand",
+    "label": "meja samping tempat tidur"
+  },
+  {
+    "id": 353,
+    "source": "Oboe",
+    "label": "obo"
+  },
+  {
+    "id": 354,
+    "source": "Office building",
+    "label": "gedung kantor"
+  },
+  {
+    "id": 355,
+    "source": "Office supplies",
+    "label": "perlengkapan kantor"
+  },
+  {
+    "id": 356,
+    "source": "Orange",
+    "label": "jeruk"
+  },
+  {
+    "id": 357,
+    "source": "Organ (Musical Instrument)",
+    "label": "organ musik"
+  },
+  {
+    "id": 358,
+    "source": "Ostrich",
+    "label": "burung unta"
+  },
+  {
+    "id": 359,
+    "source": "Otter",
+    "label": "berang-berang"
+  },
+  {
+    "id": 360,
+    "source": "Oven",
+    "label": "oven"
+  },
+  {
+    "id": 361,
+    "source": "Owl",
+    "label": "burung hantu"
+  },
+  {
+    "id": 362,
+    "source": "Oyster",
+    "label": "tiram"
+  },
+  {
+    "id": 363,
+    "source": "Paddle",
+    "label": "dayung"
+  },
+  {
+    "id": 364,
+    "source": "Palm tree",
+    "label": "pohon palem"
+  },
+  {
+    "id": 365,
+    "source": "Pancake",
+    "label": "panekuk"
+  },
+  {
+    "id": 366,
+    "source": "Panda",
+    "label": "panda"
+  },
+  {
+    "id": 367,
+    "source": "Paper cutter",
+    "label": "pemotong kertas"
+  },
+  {
+    "id": 368,
+    "source": "Paper towel",
+    "label": "tisu dapur"
+  },
+  {
+    "id": 369,
+    "source": "Parachute",
+    "label": "parasut"
+  },
+  {
+    "id": 370,
+    "source": "Parking meter",
+    "label": "meter parkir"
+  },
+  {
+    "id": 371,
+    "source": "Parrot",
+    "label": "burung paruh bengkok"
+  },
+  {
+    "id": 372,
+    "source": "Pasta",
+    "label": "pasta"
+  },
+  {
+    "id": 373,
+    "source": "Pastry",
+    "label": "pastri"
+  },
+  {
+    "id": 374,
+    "source": "Peach",
+    "label": "buah persik"
+  },
+  {
+    "id": 375,
+    "source": "Pear",
+    "label": "pir"
+  },
+  {
+    "id": 376,
+    "source": "Pen",
+    "label": "pena"
+  },
+  {
+    "id": 377,
+    "source": "Pencil case",
+    "label": "kotak pensil"
+  },
+  {
+    "id": 378,
+    "source": "Pencil sharpener",
+    "label": "rautan pensil"
+  },
+  {
+    "id": 379,
+    "source": "Penguin",
+    "label": "penguin"
+  },
+  {
+    "id": 380,
+    "source": "Perfume",
+    "label": "parfum"
+  },
+  {
+    "id": 381,
+    "source": "Person",
+    "label": "orang"
+  },
+  {
+    "id": 382,
+    "source": "Personal care",
+    "label": "perlengkapan perawatan diri"
+  },
+  {
+    "id": 383,
+    "source": "Personal flotation device",
+    "label": "pelampung"
+  },
+  {
+    "id": 384,
+    "source": "Piano",
+    "label": "piano"
+  },
+  {
+    "id": 385,
+    "source": "Picnic basket",
+    "label": "keranjang piknik"
+  },
+  {
+    "id": 386,
+    "source": "Picture frame",
+    "label": "bingkai foto"
+  },
+  {
+    "id": 387,
+    "source": "Pig",
+    "label": "babi"
+  },
+  {
+    "id": 388,
+    "source": "Pillow",
+    "label": "bantal"
+  },
+  {
+    "id": 389,
+    "source": "Pineapple",
+    "label": "nanas"
+  },
+  {
+    "id": 390,
+    "source": "Pitcher (Container)",
+    "label": "teko"
+  },
+  {
+    "id": 391,
+    "source": "Pizza",
+    "label": "pizza"
+  },
+  {
+    "id": 392,
+    "source": "Pizza cutter",
+    "label": "pemotong pizza"
+  },
+  {
+    "id": 393,
+    "source": "Plant",
+    "label": "tanaman"
+  },
+  {
+    "id": 394,
+    "source": "Plastic bag",
+    "label": "kantong plastik"
+  },
+  {
+    "id": 395,
+    "source": "Plate",
+    "label": "piring"
+  },
+  {
+    "id": 396,
+    "source": "Platter",
+    "label": "piring saji"
+  },
+  {
+    "id": 397,
+    "source": "Plumbing fixture",
+    "label": "perlengkapan pipa air"
+  },
+  {
+    "id": 398,
+    "source": "Polar bear",
+    "label": "beruang kutub"
+  },
+  {
+    "id": 399,
+    "source": "Pomegranate",
+    "label": "delima"
+  },
+  {
+    "id": 400,
+    "source": "Popcorn",
+    "label": "berondong jagung"
+  },
+  {
+    "id": 401,
+    "source": "Porch",
+    "label": "teras"
+  },
+  {
+    "id": 402,
+    "source": "Porcupine",
+    "label": "landak"
+  },
+  {
+    "id": 403,
+    "source": "Poster",
+    "label": "poster"
+  },
+  {
+    "id": 404,
+    "source": "Potato",
+    "label": "kentang"
+  },
+  {
+    "id": 405,
+    "source": "Power plugs and sockets",
+    "label": "steker atau stopkontak"
+  },
+  {
+    "id": 406,
+    "source": "Pressure cooker",
+    "label": "panci presto"
+  },
+  {
+    "id": 407,
+    "source": "Pretzel",
+    "label": "pretzel"
+  },
+  {
+    "id": 408,
+    "source": "Printer",
+    "label": "printer"
+  },
+  {
+    "id": 409,
+    "source": "Pumpkin",
+    "label": "labu"
+  },
+  {
+    "id": 410,
+    "source": "Punching bag",
+    "label": "samsak tinju"
+  },
+  {
+    "id": 411,
+    "source": "Rabbit",
+    "label": "kelinci"
+  },
+  {
+    "id": 412,
+    "source": "Raccoon",
+    "label": "rakun"
+  },
+  {
+    "id": 413,
+    "source": "Racket",
+    "label": "raket"
+  },
+  {
+    "id": 414,
+    "source": "Radish",
+    "label": "lobak"
+  },
+  {
+    "id": 415,
+    "source": "Ratchet (Device)",
+    "label": "kunci ratchet"
+  },
+  {
+    "id": 416,
+    "source": "Raven",
+    "label": "gagak"
+  },
+  {
+    "id": 417,
+    "source": "Rays and skates",
+    "label": "ikan pari"
+  },
+  {
+    "id": 418,
+    "source": "Red panda",
+    "label": "panda merah"
+  },
+  {
+    "id": 419,
+    "source": "Refrigerator",
+    "label": "kulkas"
+  },
+  {
+    "id": 420,
+    "source": "Remote control",
+    "label": "remot"
+  },
+  {
+    "id": 421,
+    "source": "Reptile",
+    "label": "reptil"
+  },
+  {
+    "id": 422,
+    "source": "Rhinoceros",
+    "label": "badak"
+  },
+  {
+    "id": 423,
+    "source": "Rifle",
+    "label": "benda menyerupai senapan"
+  },
+  {
+    "id": 424,
+    "source": "Ring binder",
+    "label": "map ring"
+  },
+  {
+    "id": 425,
+    "source": "Rocket",
+    "label": "roket"
+  },
+  {
+    "id": 426,
+    "source": "Roller skates",
+    "label": "sepatu roda"
+  },
+  {
+    "id": 427,
+    "source": "Rose",
+    "label": "mawar"
+  },
+  {
+    "id": 428,
+    "source": "Rugby ball",
+    "label": "bola rugbi"
+  },
+  {
+    "id": 429,
+    "source": "Ruler",
+    "label": "penggaris"
+  },
+  {
+    "id": 430,
+    "source": "Salad",
+    "label": "salad"
+  },
+  {
+    "id": 431,
+    "source": "Salt and pepper shakers",
+    "label": "wadah garam atau merica"
+  },
+  {
+    "id": 432,
+    "source": "Sandal",
+    "label": "sandal"
+  },
+  {
+    "id": 433,
+    "source": "Sandwich",
+    "label": "roti lapis"
+  },
+  {
+    "id": 434,
+    "source": "Saucer",
+    "label": "tatakan cangkir"
+  },
+  {
+    "id": 435,
+    "source": "Saxophone",
+    "label": "saksofon"
+  },
+  {
+    "id": 436,
+    "source": "Scale",
+    "label": "timbangan"
+  },
+  {
+    "id": 437,
+    "source": "Scarf",
+    "label": "syal"
+  },
+  {
+    "id": 438,
+    "source": "Scissors",
+    "label": "gunting"
+  },
+  {
+    "id": 439,
+    "source": "Scoreboard",
+    "label": "papan skor"
+  },
+  {
+    "id": 440,
+    "source": "Scorpion",
+    "label": "kalajengking"
+  },
+  {
+    "id": 441,
+    "source": "Screwdriver",
+    "label": "obeng"
+  },
+  {
+    "id": 442,
+    "source": "Sculpture",
+    "label": "patung"
+  },
+  {
+    "id": 443,
+    "source": "Sea lion",
+    "label": "singa laut"
+  },
+  {
+    "id": 444,
+    "source": "Sea turtle",
+    "label": "penyu"
+  },
+  {
+    "id": 445,
+    "source": "Seafood",
+    "label": "makanan laut"
+  },
+  {
+    "id": 446,
+    "source": "Seahorse",
+    "label": "kuda laut"
+  },
+  {
+    "id": 447,
+    "source": "Seat belt",
+    "label": "sabuk pengaman"
+  },
+  {
+    "id": 448,
+    "source": "Segway",
+    "label": "segway"
+  },
+  {
+    "id": 449,
+    "source": "Serving tray",
+    "label": "nampan"
+  },
+  {
+    "id": 450,
+    "source": "Sewing machine",
+    "label": "mesin jahit"
+  },
+  {
+    "id": 451,
+    "source": "Shark",
+    "label": "hiu"
+  },
+  {
+    "id": 452,
+    "source": "Sheep",
+    "label": "domba"
+  },
+  {
+    "id": 453,
+    "source": "Shelf",
+    "label": "rak"
+  },
+  {
+    "id": 454,
+    "source": "Shellfish",
+    "label": "kerang"
+  },
+  {
+    "id": 455,
+    "source": "Shirt",
+    "label": "kemeja"
+  },
+  {
+    "id": 456,
+    "source": "Shorts",
+    "label": "celana pendek"
+  },
+  {
+    "id": 457,
+    "source": "Shotgun",
+    "label": "benda menyerupai senapan"
+  },
+  {
+    "id": 458,
+    "source": "Shower",
+    "label": "pancuran mandi"
+  },
+  {
+    "id": 459,
+    "source": "Shrimp",
+    "label": "udang"
+  },
+  {
+    "id": 460,
+    "source": "Sink",
+    "label": "wastafel"
+  },
+  {
+    "id": 461,
+    "source": "Skateboard",
+    "label": "papan luncur"
+  },
+  {
+    "id": 462,
+    "source": "Ski",
+    "label": "ski"
+  },
+  {
+    "id": 463,
+    "source": "Skirt",
+    "label": "rok"
+  },
+  {
+    "id": 464,
+    "source": "Skull",
+    "label": "tengkorak"
+  },
+  {
+    "id": 465,
+    "source": "Skunk",
+    "label": "sigung"
+  },
+  {
+    "id": 466,
+    "source": "Skyscraper",
+    "label": "gedung tinggi"
+  },
+  {
+    "id": 467,
+    "source": "Slow cooker",
+    "label": "panci masak lambat"
+  },
+  {
+    "id": 468,
+    "source": "Snack",
+    "label": "camilan"
+  },
+  {
+    "id": 469,
+    "source": "Snail",
+    "label": "siput"
+  },
+  {
+    "id": 470,
+    "source": "Snake",
+    "label": "ular"
+  },
+  {
+    "id": 471,
+    "source": "Snowboard",
+    "label": "papan salju"
+  },
+  {
+    "id": 472,
+    "source": "Snowman",
+    "label": "boneka salju"
+  },
+  {
+    "id": 473,
+    "source": "Snowmobile",
+    "label": "kendaraan salju"
+  },
+  {
+    "id": 474,
+    "source": "Snowplow",
+    "label": "bajak salju"
+  },
+  {
+    "id": 475,
+    "source": "Soap dispenser",
+    "label": "tempat sabun"
+  },
+  {
+    "id": 476,
+    "source": "Sock",
+    "label": "kaus kaki"
+  },
+  {
+    "id": 477,
+    "source": "Sofa bed",
+    "label": "sofa tempat tidur"
+  },
+  {
+    "id": 478,
+    "source": "Sombrero",
+    "label": "topi sombrero"
+  },
+  {
+    "id": 479,
+    "source": "Sparrow",
+    "label": "burung pipit"
+  },
+  {
+    "id": 480,
+    "source": "Spatula",
+    "label": "spatula"
+  },
+  {
+    "id": 481,
+    "source": "Spice rack",
+    "label": "rak bumbu"
+  },
+  {
+    "id": 482,
+    "source": "Spider",
+    "label": "laba-laba"
+  },
+  {
+    "id": 483,
+    "source": "Spoon",
+    "label": "sendok"
+  },
+  {
+    "id": 484,
+    "source": "Sports equipment",
+    "label": "peralatan olahraga"
+  },
+  {
+    "id": 485,
+    "source": "Sports uniform",
+    "label": "seragam olahraga"
+  },
+  {
+    "id": 486,
+    "source": "Squash (Plant)",
+    "label": "labu"
+  },
+  {
+    "id": 487,
+    "source": "Squid",
+    "label": "cumi-cumi"
+  },
+  {
+    "id": 488,
+    "source": "Squirrel",
+    "label": "tupai"
+  },
+  {
+    "id": 489,
+    "source": "Stairs",
+    "label": "tangga"
+  },
+  {
+    "id": 490,
+    "source": "Stapler",
+    "label": "stapler"
+  },
+  {
+    "id": 491,
+    "source": "Starfish",
+    "label": "bintang laut"
+  },
+  {
+    "id": 492,
+    "source": "Stationary bicycle",
+    "label": "sepeda statis"
+  },
+  {
+    "id": 493,
+    "source": "Stethoscope",
+    "label": "stetoskop"
+  },
+  {
+    "id": 494,
+    "source": "Stool",
+    "label": "bangku kecil"
+  },
+  {
+    "id": 495,
+    "source": "Stop sign",
+    "label": "rambu berhenti"
+  },
+  {
+    "id": 496,
+    "source": "Strawberry",
+    "label": "stroberi"
+  },
+  {
+    "id": 497,
+    "source": "Street light",
+    "label": "lampu jalan"
+  },
+  {
+    "id": 498,
+    "source": "Stretcher",
+    "label": "tandu"
+  },
+  {
+    "id": 499,
+    "source": "Studio couch",
+    "label": "sofa"
+  },
+  {
+    "id": 500,
+    "source": "Submarine",
+    "label": "kapal selam"
+  },
+  {
+    "id": 501,
+    "source": "Submarine sandwich",
+    "label": "roti lapis panjang"
+  },
+  {
+    "id": 502,
+    "source": "Suit",
+    "label": "setelan jas"
+  },
+  {
+    "id": 503,
+    "source": "Suitcase",
+    "label": "koper"
+  },
+  {
+    "id": 504,
+    "source": "Sun hat",
+    "label": "topi lebar"
+  },
+  {
+    "id": 505,
+    "source": "Sunglasses",
+    "label": "kacamata hitam"
+  },
+  {
+    "id": 506,
+    "source": "Surfboard",
+    "label": "papan selancar"
+  },
+  {
+    "id": 507,
+    "source": "Sushi",
+    "label": "sushi"
+  },
+  {
+    "id": 508,
+    "source": "Swan",
+    "label": "angsa"
+  },
+  {
+    "id": 509,
+    "source": "Swim cap",
+    "label": "topi renang"
+  },
+  {
+    "id": 510,
+    "source": "Swimming pool",
+    "label": "kolam renang"
+  },
+  {
+    "id": 511,
+    "source": "Swimwear",
+    "label": "pakaian renang"
+  },
+  {
+    "id": 512,
+    "source": "Sword",
+    "label": "pedang"
+  },
+  {
+    "id": 513,
+    "source": "Syringe",
+    "label": "alat suntik"
+  },
+  {
+    "id": 514,
+    "source": "Table",
+    "label": "meja"
+  },
+  {
+    "id": 515,
+    "source": "Table tennis racket",
+    "label": "bet tenis meja"
+  },
+  {
+    "id": 516,
+    "source": "Tablet computer",
+    "label": "tablet"
+  },
+  {
+    "id": 517,
+    "source": "Tableware",
+    "label": "peralatan makan"
+  },
+  {
+    "id": 518,
+    "source": "Taco",
+    "label": "taco"
+  },
+  {
+    "id": 519,
+    "source": "Tank",
+    "label": "tank"
+  },
+  {
+    "id": 520,
+    "source": "Tap",
+    "label": "keran"
+  },
+  {
+    "id": 521,
+    "source": "Tart",
+    "label": "kue tart"
+  },
+  {
+    "id": 522,
+    "source": "Taxi",
+    "label": "taksi"
+  },
+  {
+    "id": 523,
+    "source": "Tea",
+    "label": "teh"
+  },
+  {
+    "id": 524,
+    "source": "Teapot",
+    "label": "teko teh"
+  },
+  {
+    "id": 525,
+    "source": "Teddy bear",
+    "label": "boneka beruang"
+  },
+  {
+    "id": 526,
+    "source": "Telephone",
+    "label": "telepon"
+  },
+  {
+    "id": 527,
+    "source": "Television",
+    "label": "televisi"
+  },
+  {
+    "id": 528,
+    "source": "Tennis ball",
+    "label": "bola tenis"
+  },
+  {
+    "id": 529,
+    "source": "Tennis racket",
+    "label": "raket tenis"
+  },
+  {
+    "id": 530,
+    "source": "Tent",
+    "label": "tenda"
+  },
+  {
+    "id": 531,
+    "source": "Tiara",
+    "label": "tiara"
+  },
+  {
+    "id": 532,
+    "source": "Tick",
+    "label": "kutu"
+  },
+  {
+    "id": 533,
+    "source": "Tie",
+    "label": "dasi"
+  },
+  {
+    "id": 534,
+    "source": "Tiger",
+    "label": "harimau"
+  },
+  {
+    "id": 535,
+    "source": "Tin can",
+    "label": "kaleng"
+  },
+  {
+    "id": 536,
+    "source": "Tire",
+    "label": "ban"
+  },
+  {
+    "id": 537,
+    "source": "Toaster",
+    "label": "pemanggang roti"
+  },
+  {
+    "id": 538,
+    "source": "Toilet",
+    "label": "toilet"
+  },
+  {
+    "id": 539,
+    "source": "Toilet paper",
+    "label": "tisu toilet"
+  },
+  {
+    "id": 540,
+    "source": "Tomato",
+    "label": "tomat"
+  },
+  {
+    "id": 541,
+    "source": "Tool",
+    "label": "perkakas"
+  },
+  {
+    "id": 542,
+    "source": "Toothbrush",
+    "label": "sikat gigi"
+  },
+  {
+    "id": 543,
+    "source": "Torch",
+    "label": "obor"
+  },
+  {
+    "id": 544,
+    "source": "Tortoise",
+    "label": "kura-kura"
+  },
+  {
+    "id": 545,
+    "source": "Towel",
+    "label": "handuk"
+  },
+  {
+    "id": 546,
+    "source": "Tower",
+    "label": "menara"
+  },
+  {
+    "id": 547,
+    "source": "Toy",
+    "label": "mainan"
+  },
+  {
+    "id": 548,
+    "source": "Traffic light",
+    "label": "lampu lalu lintas"
+  },
+  {
+    "id": 549,
+    "source": "Traffic sign",
+    "label": "rambu lalu lintas"
+  },
+  {
+    "id": 550,
+    "source": "Train",
+    "label": "kereta"
+  },
+  {
+    "id": 551,
+    "source": "Training bench",
+    "label": "bangku olahraga"
+  },
+  {
+    "id": 552,
+    "source": "Treadmill",
+    "label": "treadmill"
+  },
+  {
+    "id": 553,
+    "source": "Tree",
+    "label": "pohon"
+  },
+  {
+    "id": 554,
+    "source": "Tree house",
+    "label": "rumah pohon"
+  },
+  {
+    "id": 555,
+    "source": "Tripod",
+    "label": "tripod"
+  },
+  {
+    "id": 556,
+    "source": "Trombone",
+    "label": "trombon"
+  },
+  {
+    "id": 557,
+    "source": "Trousers",
+    "label": "celana panjang"
+  },
+  {
+    "id": 558,
+    "source": "Truck",
+    "label": "truk"
+  },
+  {
+    "id": 559,
+    "source": "Trumpet",
+    "label": "terompet"
+  },
+  {
+    "id": 560,
+    "source": "Turkey",
+    "label": "kalkun"
+  },
+  {
+    "id": 561,
+    "source": "Turtle",
+    "label": "kura-kura"
+  },
+  {
+    "id": 562,
+    "source": "Umbrella",
+    "label": "payung"
+  },
+  {
+    "id": 563,
+    "source": "Unicycle",
+    "label": "sepeda roda satu"
+  },
+  {
+    "id": 564,
+    "source": "Van",
+    "label": "mobil van"
+  },
+  {
+    "id": 565,
+    "source": "Vase",
+    "label": "vas"
+  },
+  {
+    "id": 566,
+    "source": "Vegetable",
+    "label": "sayuran"
+  },
+  {
+    "id": 567,
+    "source": "Vehicle",
+    "label": "kendaraan"
+  },
+  {
+    "id": 568,
+    "source": "Vehicle registration plate",
+    "label": "pelat nomor"
+  },
+  {
+    "id": 569,
+    "source": "Violin",
+    "label": "biola"
+  },
+  {
+    "id": 570,
+    "source": "Volleyball (Ball)",
+    "label": "bola voli"
+  },
+  {
+    "id": 571,
+    "source": "Waffle",
+    "label": "wafel"
+  },
+  {
+    "id": 572,
+    "source": "Waffle iron",
+    "label": "cetakan wafel"
+  },
+  {
+    "id": 573,
+    "source": "Wall clock",
+    "label": "jam dinding"
+  },
+  {
+    "id": 574,
+    "source": "Wardrobe",
+    "label": "lemari pakaian"
+  },
+  {
+    "id": 575,
+    "source": "Washing machine",
+    "label": "mesin cuci"
+  },
+  {
+    "id": 576,
+    "source": "Waste container",
+    "label": "tempat sampah"
+  },
+  {
+    "id": 577,
+    "source": "Watch",
+    "label": "jam tangan"
+  },
+  {
+    "id": 578,
+    "source": "Watercraft",
+    "label": "kendaraan air"
+  },
+  {
+    "id": 579,
+    "source": "Watermelon",
+    "label": "semangka"
+  },
+  {
+    "id": 580,
+    "source": "Weapon",
+    "label": "benda menyerupai senjata"
+  },
+  {
+    "id": 581,
+    "source": "Whale",
+    "label": "paus"
+  },
+  {
+    "id": 582,
+    "source": "Wheel",
+    "label": "roda"
+  },
+  {
+    "id": 583,
+    "source": "Wheelchair",
+    "label": "kursi roda"
+  },
+  {
+    "id": 584,
+    "source": "Whisk",
+    "label": "pengocok telur"
+  },
+  {
+    "id": 585,
+    "source": "Whiteboard",
+    "label": "papan tulis"
+  },
+  {
+    "id": 586,
+    "source": "Willow",
+    "label": "pohon willow"
+  },
+  {
+    "id": 587,
+    "source": "Window",
+    "label": "jendela"
+  },
+  {
+    "id": 588,
+    "source": "Window blind",
+    "label": "kerai jendela"
+  },
+  {
+    "id": 589,
+    "source": "Wine",
+    "label": "minuman anggur"
+  },
+  {
+    "id": 590,
+    "source": "Wine glass",
+    "label": "gelas berkaki"
+  },
+  {
+    "id": 591,
+    "source": "Wine rack",
+    "label": "rak botol"
+  },
+  {
+    "id": 592,
+    "source": "Winter melon",
+    "label": "labu kundur"
+  },
+  {
+    "id": 593,
+    "source": "Wok",
+    "label": "wajan"
+  },
+  {
+    "id": 594,
+    "source": "Woman",
+    "label": "orang"
+  },
+  {
+    "id": 595,
+    "source": "Wood-burning stove",
+    "label": "kompor kayu"
+  },
+  {
+    "id": 596,
+    "source": "Woodpecker",
+    "label": "burung pelatuk"
+  },
+  {
+    "id": 597,
+    "source": "Worm",
+    "label": "cacing"
+  },
+  {
+    "id": 598,
+    "source": "Wrench",
+    "label": "kunci pas"
+  },
+  {
+    "id": 599,
+    "source": "Zebra",
+    "label": "zebra"
+  },
+  {
+    "id": 600,
+    "source": "Zucchini",
+    "label": "zukini"
+  }
+]

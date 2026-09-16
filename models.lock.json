@@ -1,0 +1,86 @@
+{
+  "objects": {
+    "file": "objects_oiv7.onnx",
+    "sha256": "e1a40a70e95419edba41b8763c70f1b578afcd94871523c0a446b817b176ef78",
+    "url": "https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8n-oiv7.pt",
+    "sourceSha256": "3851dfbf39ed2a076b1f39215cc22dba64eb5646f282bf964703785b0bed6a41",
+    "license": "AGPL-3.0 (Ultralytics)",
+    "provenance": "Ultralytics YOLOv8n Open Images V7, official assets v8.2.0",
+    "ultralyticsVersion": "8.2.82",
+    "torchVersion": "2.4.0+cpu",
+    "onnxVersion": "1.16.2",
+    "classes": 601,
+    "input": "RGB float32 /255 NCHW [1,3,640,640], letterbox RGB 114",
+    "output": "float32 [1,605,8400], xywh pixel coordinates and 601 class scores",
+    "scoreThreshold": 0.4,
+    "nmsIou": 0.5,
+    "maxResults": 10
+  },
+  "face": {
+    "file": "mobilefacenet.tflite",
+    "url": "https://raw.githubusercontent.com/estebanuri/face_recognition/dbf9732725cf1ab6e06b412651bb4858b5dfe0df/android/app/src/main/assets/mobile_face_net.tflite",
+    "sha256": "b67366e085ec9f6c2afb05c10397a46edeb823367abaec77f64f5ce946ac2847",
+    "provenance": "estebanuri/face_recognition dbf9732725cf1ab6e06b412651bb4858b5dfe0df; MobileFaceNet",
+    "license": "Not declared in upstream example repository; see MODEL_CARD.md"
+  },
+  "speech": {
+    "file": "ggml-tiny.bin",
+    "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-tiny.bin",
+    "sha256": "be07e048e1e599ad46341c8d2a135645097a538221678b7acdd1b1919c6e1b21",
+    "provenance": "whisper.cpp model conversion 5359861c739e955e79d9a303bcbc70fb988958b1; multilingual tiny",
+    "license": "MIT"
+  },
+  "objectLabels": {
+    "file": "objects_labels.json",
+    "sha256": "80e88ae0cfa9f01b4c2deac4351d5a18afc89f294b3aad1eeb7237103f6691c2"
+  },
+  "depth": {
+    "file": "depth_yolo26n.onnx",
+    "sha256": "ac8a0f1b25a95b36d18cb8a9813132c8b9259aae8db3614941ad981df4fa7743",
+    "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n-depth.pt",
+    "sourceSha256": "befed1b8561d8b2eaa66274b070cdfc9c44853bda6d6d62a04759f9383af74e9",
+    "license": "AGPL-3.0 (Ultralytics)",
+    "provenance": "Official Ultralytics assets v8.4.0 YOLO26n-depth",
+    "ultralyticsVersion": "8.4.150",
+    "torchVersion": "2.4.0+cpu",
+    "onnxVersion": "1.16.2",
+    "input": "RGB /255 NCHW [1,3,640,640], letterbox RGB 114",
+    "output": "positive metric depth [1,1,640,640], metres; no per-image scale alignment",
+    "validation": [
+      {
+        "input": "random",
+        "maxAbsoluteError": 2.6226043701171875e-06,
+        "desktopOnnxMs": 419.3927999876905
+      },
+      {
+        "input": "gray",
+        "maxAbsoluteError": 0.0002593994140625,
+        "desktopOnnxMs": 376.72879997990094
+      },
+      {
+        "input": "black",
+        "maxAbsoluteError": 1.430511474609375e-06,
+        "desktopOnnxMs": 333.4340000001248
+      }
+    ]
+  },
+  "qwen": {
+    "file": "qwen35_0_8b_iris.litertlm",
+    "sha256": "49a077c27d63945da44289d8d8054cd231dfaaf5192167bff22f47ab9a258fc2",
+    "size": 1159760881,
+    "url": "https://huggingface.co/GabrieleConte/Qwen3.5-0.8B-LiteRT/resolve/766ec4afaaeeda64da162c458bac1efc0d27cf9e/qwen35_mm_q8_ekv2048.litertlm",
+    "sourceSha256": "92999fe4a9242c983e99892d6e57f368e8cd7a4534bc9a383a9551155b7f70a5",
+    "sourceSize": 1159757824,
+    "provenance": "GabrieleConte revision 766ec4afaaeeda64da162c458bac1efc0d27cf9e; IRIS executor metadata and thinking template repair; unchanged model weights",
+    "license": "Apache-2.0",
+    "quantization": "dynamic INT8",
+    "contextTokens": 2048,
+    "runtime": "LiteRT-LM Android 0.17.0",
+    "modelSectionHashes": {
+      "tf_lite_prefill_decode": "2a59a2b85cf06e1245a5ea4a0b0e1e0b0348de8c803e8c806dac42951a3035ed",
+      "tf_lite_embedder": "0a3cc2102f1c345110215d23bc6963a1369c358d8ef91fe4f295b8606dc1df27",
+      "tf_lite_vision_encoder": "2e58590d0a610d399438223c854192ac3ccbfc98b0bd57f0aedb84ddae17540a",
+      "tf_lite_vision_adapter": "b1032a0082a74a38c8d1a56e024c2f596de48973c18bf54aeed1acff2e11d1a4"
+    }
+  }
+}

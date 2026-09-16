@@ -1,0 +1,14 @@
+{
+  "version": "0.5.0",
+  "execution": "App-managed JSON tool calls; explicit camera queries use a deterministic fast path. At most one read-only tool is executed per question.",
+  "tools": [
+    {"name": "detect_objects", "description": "Capture a current camera frame and detect object labels, directions and confidence; does not measure distance.", "parameters": {"type": "object", "properties": {}, "additionalProperties": false}},
+    {"name": "read_text", "description": "Read up to 1600 characters from a current camera frame using local OCR.", "parameters": {"type": "object", "properties": {}, "additionalProperties": false}}
+  ],
+  "example": {
+    "question": "Di depan saya ada apa?",
+    "request": {"tool": "detect_objects"},
+    "illustrative_result": {"tool": "detect_objects", "status": "ok", "objects": [{"label": "kursi", "position": "depan", "confidence": 0.91}], "distanceMeasured": false},
+    "spoken_answer": "Terdeteksi kursi di depan. Jarak belum diukur."
+  }
+}

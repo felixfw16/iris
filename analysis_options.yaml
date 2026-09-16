@@ -1,0 +1,10 @@
+analyzer:
+  exclude:
+    - .tools/**
+    - build/**
+    - android/**
+linter:
+  rules:
+    - avoid_print
+    - use_build_context_synchronously
+    - unawaited_futures
