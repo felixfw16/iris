@@ -29,7 +29,9 @@ Daftarkan 5 sudut per orang bersama pendamping. Ambil data uji pada sesi lain, b
 
 OCR: minimal 30 contoh teks cetak Latin, panjang/jarak/cahaya bervariasi; bandingkan teks verbatim lewat character error rate, target <= 10%. Tulisan tangan tidak dijanjikan.
 
-Suara: uji 10 perintah (pindai, tulisan, keluarga, jelaskan foto, ulangi, berhenti, indoor, outdoor, jarak, perintah tidak dikenal), masing-masing 10 kali pada kondisi tenang dan bising. Rekaman aktif 4 detik setelah tombol mikrofon, bukan wake word. Target keberhasilan kondisi tenang >= 90%.
+Suara: uji 11 perintah (pindai, tulisan, keluarga, jelaskan foto, ulangi, berhenti, indoor, outdoor, jarak, rupiah, perintah tidak dikenal), masing-masing 10 kali pada kondisi tenang dan bising. Rekaman dimulai setelah tombol mikrofon, berakhir setelah jeda sekitar satu detik, menunggu hingga delapan detik tanpa ucapan, dan dibatasi 30 detik; bukan wake word. Uji ucapan lebih dari empat detik, jeda di tengah kalimat, keheningan, bunyi impuls, dan kebisingan kontinu. Target keberhasilan kondisi tenang >= 90%.
+
+Qwen: pisahkan pertanyaan umum, permintaan objek, dan permintaan OCR. Catat ketepatan pemilihan alat, kesesuaian jawaban dengan hasil kamera, jawaban berulang, Thinking aktif/nonaktif, serta pembatalan saat pemuatan dan generasi. Laporkan kegagalan dan waktu sampai TTS secara terpisah dari keberhasilan tes antarmuka.
 
 ## Performa dan kegagalan
 

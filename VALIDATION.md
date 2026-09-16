@@ -1,5 +1,25 @@
 # Catatan validasi
 
+## Rilis 0.5.0 — 16 September 2026
+
+- Build release ARM64 berhasil dengan Flutter SDK proyek dan `--no-pub`; Gradle selesai sekitar 91,6 detik. Log lokal: `build/apk-build-0.5.0.log`.
+- APK: `build/app/outputs/flutter-apk/app-release.apk`, **1.482.839.112 byte** (sekitar 1,48 GB atau 1.414,1 MiB).
+- SHA-256: `591d500726ddbd93d5788b873e8229639593bf89a384a5dc001cf8669040836b`.
+- Metadata `aapt`: paket `id.sahabatnetra.app`, versi `0.5.0` (5), minimum API 26, target API 36.
+- `apksigner verify --verbose`: lulus signature v2; signing masih debug key untuk demo.
+- `flutter analyze --no-pub`: tanpa masalah. `flutter test --no-pub`: **21 tes lulus**. Kanal Android pada tes Flutter menggunakan mock.
+- Pemeriksaan Java native: **5 skenario VoiceEndpoint** dan **6 skenario AssistantToolRouter** lulus, dikompilasi/dijalankan menggunakan JBR 21.
+- Suite Android `:app:testDebugUnitTest` belum dijalankan sampai assertion: mode offline gagal karena artefak Flutter `arm64_v8a_debug` dan `x86_64_debug` belum ada di cache. Percobaan online tertahan pada resolusi dependensi lalu dihentikan. Log: `build/native-tests-0.5.0.log`. Ini tidak membatalkan keberhasilan build release, tetapi tes Kotlin jarak/detektor belum terverifikasi ulang.
+- `python scripts/verify_qwen_apk.py`: keenam aset wajib cocok dengan manifest dan `models.lock.json`; runtime LiteRT-LM, Flutter, aplikasi, dan Whisper ARM64 tersedia; template Thinking diperiksa dari model di dalam APK, bukan salinan di workspace. Tidak ada potongan unduhan `.parts` dalam APK.
+- Qwen aktif: `qwen35_0_8b_iris.litertlm`, SHA-256 `49a077c27d63945da44289d8d8054cd231dfaaf5192167bff22f47ab9a258fc2`.
+- APK ditargetkan untuk ARM64, tetapi pustaka dependensi juga membawa ABI ARMv7/x86_64. Keberadaannya bukan bukti aplikasi mendukung perangkat tersebut.
+- Build masih memberi peringatan migrasi Kotlin Gradle Plugin untuk versi Flutter mendatang; build saat ini berhasil.
+
+APK belum dipasang atau diuji di HP pada sesi ini. Akurasi, latensi, RAM, TalkBack/TTS nyata, kualitas Qwen/Thinking, dan pembatalan inferensi perlu diuji di perangkat. Log eksperimen Qwen desktop sebelumnya menunjukkan jawaban berulang/tidak konsisten. Tidak ada klaim bahwa tes antarmuka membuktikan kualitas model.
+
+Biner APK tetap berada di direktori build yang diabaikan Git; commit menyertakan sumber, dokumentasi, dan audit verifikasi.
+
+
 ## Qwen suara / versi 0.4.0 — 13 September 2026
 
 - APK final berhasil: `build/app/outputs/flutter-apk/app-release.apk`, 667.515.735 byte (636,6 MiB), versi `0.4.0` (4), paket `id.sahabatnetra.app`, minimum API 26, target API 36. Log `build/apk-build-qwen.log`; Gradle sekitar 38,2 detik.

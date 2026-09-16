@@ -9,15 +9,19 @@ Seluruh model adalah baseline pretrained. Versi dan hash dicatat di `models.lock
 | Jarak | YOLO26n-depth, ONNX Runtime CPU | RGB /255, letterbox RGB 114 pada 640×640; ONNX input NCHW 1×3×640×640, output 1×1×640×640 dalam meter |
 | Tulisan | ML Kit Text Recognition Latin bundled | Foto upright, teks cetak Latin |
 | Rupiah | OCR ML Kit + aturan pencocokan tulisan | Harus ada BANK INDONESIA, RUPIAH, serta nominal angka dan huruf yang cocok dan tunggal; bukan model klasifikasi uang atau autentikasi |
-| Perintah | Whisper tiny multilingual, whisper.cpp v1.8.3 | PCM mono 16 kHz, 4 detik, bahasa `id`, no-context, CPU maksimal 4 thread |
+| Perintah | Whisper tiny multilingual, whisper.cpp v1.8.3 | PCM mono 16 kHz, endpoint berbasis energi, maksimum 30 detik, bahasa `id`, no-context, CPU maksimal 4 thread |
 | Suara | Android TTS | Voice Indonesia tanpa kebutuhan jaringan dan tanpa penanda voice belum terpasang |
 | Foto online | OpenAI Responses API | JPEG sisi panjang <=1024 px; `store=false`, output maksimum 600 token; model/key dari pengaturan |
 
-## Qwen suara lokal (0.4.0)
+## Qwen suara lokal (0.5.0)
 
-Qwen3-0.6B memakai konversi komunitas LiteRT dynamic INT4 block-32, aktivasi/KV float, konteks model 4096. Runtime LiteRT-LM Android 0.17.0 CPU. Bobot 344.437.808 byte, SHA-256 `e3e290109da4388d65a17510a0c66af91c8039f52d2c465868dbc43c09a776cf`; URL revision terkunci dalam `models.lock.json`. Lisensi Qwen Apache-2.0. Sumber: https://huggingface.co/litert-community/Qwen3-0.6B dan https://huggingface.co/Qwen/Qwen3-0.6B.
+Qwen3.5-0.8B memakai konversi komunitas LiteRT dynamic INT8, konteks 2048, dan runtime LiteRT-LM Android 0.17.0 CPU. Aset hasil repack berukuran 1.159.760.881 byte, SHA-256 `49a077c27d63945da44289d8d8054cd231dfaaf5192167bff22f47ab9a258fc2`. Sumber konversi GabrieleConte dipatok revisi `766ec4afaaeeda64da162c458bac1efc0d27cf9e` dalam `models.lock.json`, dengan metadata lisensi Apache-2.0. Skrip repack menambahkan metadata state hybrid attention dan template percakapan; hash setiap bagian bobot dibandingkan sebelum dan sesudah repack.
 
-Input berasal dari transkrip Whisper, bukan piksel. Setiap pertanyaan membuat percakapan baru; engine dipakai ulang. Switch mengirim `enable_thinking` ke template dan membedakan sampling/anggaran keluaran 128 atau 512 token. Teks bertanda `<think>` disaring sebelum TTS. Belum ada benchmark HP atau validasi hasil Thinking pada perangkat. Model ringan ini tidak menggantikan detektor objek/depth dan belum menjalankan tindakan otomatis.
+Input berasal dari transkrip Whisper, bukan piksel. Meskipun bundle menyertakan encoder/adapter visual, aplikasi tidak mengirim gambar langsung ke Qwen. Setiap pertanyaan model membuat percakapan baru; engine dipakai ulang. Switch mengirim `enable_thinking` ke template dan membedakan sampling/anggaran keluaran 128 atau 512 token. Teks bertanda `<think>` disaring sebelum TTS; penalaran yang tidak selesai menghasilkan pesan untuk mencoba tanpa Thinking.
+
+Pertanyaan kamera eksplisit diteruskan langsung ke `detect_objects` atau `read_text`. Permintaan alat dari model hanya menerima dua nama tersebut. Hasil kamera dinarasikan langsung tanpa putaran generasi tambahan. Ini pemilihan alat berdasarkan pertanyaan, bukan mode hands-free atau navigasi otomatis.
+
+Log eksperimen desktop sebelumnya menunjukkan jawaban umum yang tidak konsisten dan berulang. Keberhasilan pemuatan runtime bukan bukti kualitas jawaban, pemahaman Bahasa Indonesia, atau Thinking. Belum ada benchmark HP. Model Qwen3-0.6B INT4 versi 0.4.0 tidak lagi menjadi aset aktif.
 
 ## Kedalaman dan keluarga
 
