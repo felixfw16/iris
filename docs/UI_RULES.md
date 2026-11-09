@@ -243,7 +243,7 @@ has since moved to 952 lines, so the line numbers below are current rather than 
 | 6 | Three font sizes raised off the floor: the mode status line 11 to 13, the result heading 12 to 13, the disclaimer 12 to 14 |
 | 7 | A `_gated()` helper in `HomeView` and `FamilyView` attaches a `Semantics(hint:)` stating why a control is unavailable, across 12 call sites. The hint distinguishes microphone recording from a pending request |
 | 9 | `ExcludeSemantics` now wraps the framing crosshair, which previously used `IgnorePointer` alone, and both platform views inside `CameraPreview` |
-| 11 | All 13 product-name sites renamed to role and location: `'Jelaskan foto'`, `'Tanya dengan suara'`, `'Mode berpikir lebih lama'`, `'Model bahasa di perangkat'`, `'Penjelasan oleh layanan online'`, `'API key layanan online'`. Four of these were spoken strings reaching the user through Text-to-Speech, not widget labels. A second pass carried the same renames into `usageGuide` at `lib/domain.dart:3-30`, which the first pass missed because it scanned `lib/main.dart` only. Seven lines there cited a control name that no longer existed or contradicted the design: three renamed labels, the mode wording, the Settings voice entry, "Pendamping dapat mendaftarkan wajah", which told the user a companion registers faces, and a closing line naming TalkBack alone. All 17 control names the guide mentions now match a literal in `lib/main.dart` exactly |
+| 11 | All 13 product-name sites renamed to role and location: `'Jelaskan foto'`, `'Tanya dengan suara'`, `'Mode berpikir lebih lama'`, `'Model bahasa di perangkat'`, `'Penjelasan oleh layanan online'`, `'API key layanan online'`. Four of these were spoken strings reaching the user through Text-to-Speech, not widget labels. A second pass carried the same renames into `usageGuide` at `lib/domain.dart:3-31`, which the first pass missed because it scanned `lib/main.dart` only. Seven lines there cited a control name that no longer existed or contradicted the design: three renamed labels, the mode wording, the Settings voice entry, "Pendamping dapat mendaftarkan wajah", which told the user a companion registers faces, and a closing line naming TalkBack alone. All 17 control names the guide mentions now match a literal in `lib/main.dart` exactly |
 | 12 | Added `test/a11y_test.dart`, running all four guidelines against `HomeView`, `SettingsView` and `FamilyView` |
 
 `FamilyView` rendered `CameraPreview()` unconditionally, with no permission gate and no
@@ -274,7 +274,7 @@ as the system's defining mode.
 | 8 | `lib/main.dart:539` | The scan badge still sits in a `Positioned` inside a `Stack`. It now carries a label, so it is announced, but traversal order is still paint order. Fixing it properly needs `OrdinalSortKey` from `package:flutter/semantics.dart`, and ordering is the one thing here that cannot be checked without running a screen reader |
 | 9 | `ios/Runner/CameraView.swift:32`, `android/.../CameraView.kt` | Both native layers and the Flutter layer now exclude the preview, so they agree. Which layer actually governs a platform view is unverified and needs a device with VoiceOver and TalkBack to settle |
 
-The guide remains an `AlertDialog` at `lib/main.dart:415` rather than the `GuideView` screen the
+The guide remains an `AlertDialog` at `lib/main.dart:408` rather than the `GuideView` screen the
 architecture names. That is a structural change, not an accessibility fix, so it stayed out of
 this pass.
 
