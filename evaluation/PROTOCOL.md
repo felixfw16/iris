@@ -1,42 +1,42 @@
-# Protokol pengujian Redmi Note 13 5G
+# Redmi Note 13 5G test protocol
 
-Target penelitian bukan hasil yang telah dicapai. Semua kolom CSV dimulai kosong. Isi hanya dari percobaan nyata, gunakan ID samaran untuk orang, dan jangan simpan wajah dalam CSV.
+The research targets are not results already achieved. Every CSV column starts empty. Fill them only from real trials, use pseudonymous IDs for people, and never store faces in a CSV.
 
-## Persiapan
+## Preparation
 
-- Catat versi Android/HyperOS, RAM fisik, versi APK, `models.lock.json`, TTS engine/voice, kondisi baterai, dan suhu awal. Gunakan APK release untuk pengukuran performa.
-- Unduh suara Indonesia offline, lalu uji ulang dengan mode pesawat dan Wi-Fi mati. Buka kembali aplikasi setelah force-stop untuk menguji cold start.
-- Pisahkan sesi kalibrasi ambang dari sesi pengujian. Jangan mengubah ambang berdasarkan data uji. Ambang wajah awal 0,72 dengan margin 0,08 adalah baseline yang belum dikalibrasi.
-- Uji TalkBack dengan layar tidak dilihat: pilih mode, mulai/berhenti, ulangi, perintah suara, dan perpindahan profil indoor/outdoor. Hindari pengumuman TTS yang bertabrakan dengan TalkBack.
+- Record the Android/HyperOS version, physical RAM, APK version, `models.lock.json`, TTS engine and voice, battery condition, and starting temperature. Use a release APK for performance measurement.
+- Download the offline Indonesian voice, then retest with airplane mode on and Wi-Fi off. Reopen the application after a force-stop to test cold start.
+- Keep threshold calibration sessions separate from test sessions. Do not change a threshold based on test data. The initial face threshold of 0.72 with a 0.08 margin is an uncalibrated baseline.
+- Test TalkBack without looking at the screen: choosing a mode, start and stop, repeat, and voice commands. The indoor and outdoor commands no longer switch a profile and return a fixed statement, so test that reply rather than a profile change. Avoid TTS announcements that collide with TalkBack.
 
-## Objek
+## Objects
 
-20 kelas fokus: orang, kursi, sofa, meja makan, tempat tidur, botol, cangkir, buku, ponsel, laptop, televisi, tas ransel, payung, kucing, anjing, sepeda, sepeda motor, mobil, bus, bangku. Pilih label yang sesuai dari model COCO; detektor tidak mencakup semua objek atau bahaya jalan.
+20 focus classes: orang, kursi, sofa, meja makan, tempat tidur, botol, cangkir, buku, ponsel, laptop, televisi, ransel, payung, kucing, anjing, sepeda, sepeda motor, mobil, bus, bangku. These are the Indonesian label strings the application narrates, so they are left untranslated; match each one against the label values in `object_classes.json` before scoring. Pick the matching label from the Open Images V7 model; the detector does not cover every object or road hazard.
 
-Untuk setiap kelas, ambil minimal 20 adegan uji terpisah, pencahayaan terang/redup, oklusi ringan, dan latar berbeda. Hitung TP/FP/FN terhadap anotasi dengan IoU >= 0,5. Gunakan keluaran tampilan/top-3 secara konsisten jika mengevaluasi pengalaman aplikasi, jangan menyamakannya dengan mAP seluruh detektor. Target awal precision >= 85%, recall >= 75%.
+For each class, capture at least 20 separate test scenes, bright and dim lighting, light occlusion, and different backgrounds. Count TP/FP/FN against the annotations at IoU >= 0.5. Use the narrated output, which the decoder caps at 10 objects, consistently when evaluating the application experience, and do not equate it with whole-detector mAP. Initial targets: precision >= 85%, recall >= 75%.
 
-## Jarak
+## Distance
 
-Letakkan objek pada 0,5; 1; 1,5; 2; 3; 4; 5 meter. Minimal 5 pengulangan per jarak untuk indoor dan outdoor, kamera diam saat pengukuran tiga frame. Ukur kedalaman arah sumbu kamera ke permukaan objek dengan meteran; jangan mencampur jarak miring dengan optical-axis depth. Mulai dari objek dekat pusat gambar.
+Place the object at 0.5, 1, 1.5, 2, 3, 4, and 5 metres. At least 5 repetitions per distance for indoor and outdoor, with the camera still during the three-frame measurement. Measure depth along the camera axis to the object surface with a tape measure, and do not mix slant range with optical-axis depth. Start with objects near the centre of the frame.
 
-Isi estimate_m kosong jika aplikasi menolak hasil. Laporkan MAE pada hasil tersedia DAN coverage pada seluruh percobaan, per lingkungan/jarak/kelas. Target awal MAE <= 0,5 m; jangan menyimpulkan akurasi dari hasil yang dibulatkan tanpa menyebut pembulatan. Model Small dan letterbox perlu divalidasi di kamera perangkat ini. Tidak ada kalibrasi kamera otomatis atau sensor depth.
+Leave estimate_m empty when the application rejects a result. Report MAE over the available results AND coverage over all trials, per environment, distance, and class. Initial target MAE <= 0.5 m. Do not conclude accuracy from rounded results without stating the rounding. The YOLO26n-depth model and the letterbox still need validation on this device's camera. There is no automatic camera calibration and no depth sensor.
 
-## Wajah
+## Faces
 
-Daftarkan 5 sudut per orang bersama pendamping. Ambil data uji pada sesi lain, bukan lima foto pendaftaran. Gunakan minimal 5 profil jika tersedia serta orang yang tidak terdaftar. Catat `unknown` untuk orang tidak dikenal atau penolakan aplikasi. Target known accuracy >= 90%, false accept <= 1%; gunakan cukup percobaan negatif dan laporkan jumlahnya, bukan persentase tanpa ukuran sampel. Sistem bukan autentikasi; tidak ada liveness detection.
+Register 5 angles per person together with a helper. Capture the test data in a separate session, not the five registration photos. Use at least 5 profiles where available, plus people who are not registered. Record `unknown` for an unrecognised person or an application refusal. Targets: known accuracy >= 90%, false accept <= 1%. Use enough negative trials and report their count, not a percentage without a sample size. The system is not authentication and has no liveness detection.
 
-## Tulisan dan perintah suara
+## Text and voice commands
 
-OCR: minimal 30 contoh teks cetak Latin, panjang/jarak/cahaya bervariasi; bandingkan teks verbatim lewat character error rate, target <= 10%. Tulisan tangan tidak dijanjikan.
+OCR: at least 30 printed Latin text samples, with varying length, distance, and light. Compare verbatim text through character error rate, target <= 10%. Handwriting is not promised.
 
-Suara: uji 11 perintah (pindai, tulisan, keluarga, jelaskan foto, ulangi, berhenti, indoor, outdoor, jarak, rupiah, perintah tidak dikenal), masing-masing 10 kali pada kondisi tenang dan bising. Rekaman dimulai setelah tombol mikrofon, berakhir setelah jeda sekitar satu detik, menunggu hingga delapan detik tanpa ucapan, dan dibatasi 30 detik; bukan wake word. Uji ucapan lebih dari empat detik, jeda di tengah kalimat, keheningan, bunyi impuls, dan kebisingan kontinu. Target keberhasilan kondisi tenang >= 90%.
+Voice: test 11 commands (pindai, tulisan, keluarga, jelaskan foto, ulangi, berhenti, indoor, outdoor, jarak, rupiah, and an unrecognised command), each 10 times in quiet and in noisy conditions. Recording starts after the microphone button, ends after a pause of about one second, waits up to eight seconds without speech, and is capped at 30 seconds. It is not a wake word. Test utterances longer than four seconds, a pause mid-sentence, silence, impulse sounds, and continuous noise. Target success in quiet conditions >= 90%.
 
-Qwen: pisahkan pertanyaan umum, permintaan objek, dan permintaan OCR. Catat ketepatan pemilihan alat, kesesuaian jawaban dengan hasil kamera, jawaban berulang, Thinking aktif/nonaktif, serta pembatalan saat pemuatan dan generasi. Laporkan kegagalan dan waktu sampai TTS secara terpisah dari keberhasilan tes antarmuka.
+Qwen: separate general questions, object requests, and OCR requests. Record tool-selection correctness, whether the answer matches the camera result, repeated answers, Thinking on and off, and cancellation during loading and during generation. Report failures and time-to-TTS separately from interface test successes.
 
-## Performa dan kegagalan
+## Performance and failures
 
-Ekspor runtime CSV dari Pengaturan. Hitung median/p95 per operasi, bedakan cold/warm start; latensi detektor native tidak sama dengan waktu end-to-end sampai suara. Ukur waktu end-to-end secara terpisah. Target awal objek <= 2 detik, jarak/OCR/suara <= 5 detik setelah masukan tersedia; jarak memakai tiga inferensi sehingga bisa lebih lambat. Laporkan nilai aktual tanpa mengganti target diam-diam.
+Export the runtime CSV from Pengaturan. Compute median and p95 per operation, and distinguish cold from warm start. Native detector latency is not the same as end-to-end time to speech. Measure end-to-end time separately. Initial targets: objects <= 2 seconds, distance, OCR, and voice <= 5 seconds once the input is available. Distance uses three inferences, so it can be slower. Report the actual values without quietly replacing a target.
 
-Uji 20 menit: suhu, baterai, frame tertunda, penggunaan RAM, izin ditolak, kamera dipakai aplikasi lain, aplikasi masuk latar, hasil lama setelah berhenti, model rusak, keluarga belum didaftarkan, suara Indonesia belum terpasang, jaringan putus, API key salah, kuota habis, serta pembatalan permintaan GPT.
+20 minute test: temperature, battery, delayed frames, RAM use, denied permission, camera held by another application, application backgrounded, stale results after a stop, a corrupt model, family not yet registered, the Indonesian voice not installed, network loss, a wrong API key, exhausted quota, and cancelling a GPT request.
 
-Jalankan `python scripts/evaluate.py evaluation` untuk agregasi CSV. Data kosong menghasilkan null, bukan angka keberhasilan.
+Run `python scripts/evaluate.py evaluation` to aggregate the CSVs. Empty data yields null, not a success figure.

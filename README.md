@@ -1,45 +1,45 @@
 # IRIS
 
-Asisten visual berbasis Flutter dan Android untuk prototipe penelitian skripsi. IRIS mengenali objek, membaca tulisan dan nominal rupiah, mengenali wajah keluarga, serta memperkirakan jarak dengan keluaran suara Bahasa Indonesia.
+A Flutter and Android visual assistant built as a research prototype for an undergraduate thesis. IRIS recognises objects, reads printed text and rupiah denominations, recognises family faces, and estimates distance, with Bahasa Indonesia speech output.
 
-**Versi:** `0.5.0+5` · **Paket:** `id.sahabatnetra.app` · **Platform:** Android 8.0+ (API 26), ARM64.
+**Version:** `0.5.0+5` · **Package:** `id.sahabatnetra.app` · **Platform:** Android 8.0+ (API 26), ARM64.
 
-Target pengujian: Redmi Note 13 5G, RAM 8 GB. Aplikasi dimulai dalam mode offline. Pengujian akurasi, latensi, dan aksesibilitas di perangkat masih diperlukan; lihat [catatan validasi](VALIDATION.md).
+Test target: Redmi Note 13 5G, 8 GB RAM. The application starts in offline mode. On-device accuracy, latency, and accessibility testing is still required; see the [validation notes](VALIDATION.md).
 
-## Fitur
+## Features
 
-| Fitur | Implementasi |
+| Feature | Implementation |
 | --- | --- |
-| Pindai objek | YOLOv8n Open Images V7, 601 kelas; narasi hingga 10 objek beserta arah kiri/depan/kanan |
-| Baca tulisan | OCR ML Kit untuk teks Latin |
-| Baca rupiah | Pencocokan nominal angka dan huruf dari OCR, bukan pemeriksaan keaslian uang |
-| Keluarga | MobileFaceNet; lima sampel wajah per profil, penyimpanan terenkripsi |
-| Ukur jarak | YOLO26n-depth; konsistensi tiga pembacaan pada rentang 0,5–5 meter |
-| Perintah suara | Whisper tiny offline; rekaman selesai setelah jeda bicara |
-| Tanya Qwen | Qwen3.5-0.8B INT8 lokal, pilihan Thinking, serta alat deteksi objek dan OCR |
-| Jelaskan foto | Layanan online opsional dengan API key dan model yang diisi pengguna |
-| Aksesibilitas | TTS Indonesia offline, label TalkBack, panduan suara, Ulangi, dan Berhenti |
+| Object scan | YOLOv8n Open Images V7, 601 classes; narrates up to 10 objects with left/front/right direction |
+| Text reading | ML Kit OCR for Latin text |
+| Rupiah reading | Matches the numeric and spelled-out denomination from OCR, not a banknote authenticity check |
+| Family | MobileFaceNet; five face samples per profile, encrypted storage |
+| Distance estimation | YOLO26n-depth; three consistent readings across a 0.5-5 m range |
+| Voice command | Whisper tiny offline; recording ends after a pause in speech |
+| Ask Qwen | Local Qwen3.5-0.8B INT8, optional Thinking, plus object detection and OCR tools |
+| Photo description | Optional online service with a user-supplied API key and model |
+| Accessibility | Offline Bahasa Indonesia TTS, TalkBack labels, spoken guide, Ulangi, and Berhenti |
 
-Qwen menerima transkrip teks. Pertanyaan kamera mengambil hasil detektor/OCR; aplikasi belum mengirim piksel langsung ke Qwen. Kualitas jawaban umum Qwen masih eksperimental. Belum tersedia wake word atau sesi otomatis yang memilih seluruh fitur tanpa tombol.
+Qwen receives a text transcript. Camera questions draw on detector and OCR results; the application does not yet send pixels directly to Qwen. The quality of Qwen's general answers is still experimental. There is no wake word, and no automatic session that reaches every feature without a button.
 
-## Memasang dan menggunakan
+## Installing and using
 
-1. Pasang APK `build/app/outputs/flutter-apk/app-release.apk` pada perangkat ARM64. Model disertakan dalam APK dan disalin ke penyimpanan internal saat digunakan; sediakan beberapa GB ruang kosong untuk instalasi dan salinannya.
-2. Izinkan kamera dan, saat memakai suara, mikrofon. Pasang suara **Bahasa Indonesia offline** pada pengaturan TTS Android. Periksa kesiapan model dan suara melalui Pengaturan aplikasi.
-3. Pilih **Objek → Mulai pindai**, **Tulisan → Baca tulisan**, atau **Keluarga → Kenali wajah**. Daftarkan keluarga melalui **Kelola wajah keluarga** bersama pendamping.
-4. Untuk **Ukur jarak**, tahan kamera stabil selama tiga pembacaan. Hasil adalah perkiraan; satu model digunakan di dalam dan luar ruangan.
-5. Untuk **Baca rupiah**, arahkan satu lembar uang sehingga tulisan BANK INDONESIA, angka nominal, dan nominal dalam huruf terbaca. Hasil tidak jelas atau tidak cocok ditolak. Uang logam tidak dibaca nominalnya.
-6. Tekan **Perintah**, tunggu status mikrofon siap, lalu ucapkan: `pindai`, `tulisan`, `keluarga`, `jarak`, `rupiah`, `jelaskan foto`, `ulangi`, atau `berhenti`. Rekaman berakhir setelah jeda sekitar satu detik, menunggu hingga delapan detik jika belum ada ucapan, dan dibatasi 30 detik.
-7. Tekan **Tanya Qwen dengan suara** untuk bertanya secara lokal. Contoh: “Di depan saya ada apa?” atau “Bacakan tulisan ini”. Thinking mati secara bawaan; anggaran keluaran 128 token, atau 512 saat aktif.
-8. **Berhenti** membatalkan proses dan pembacaan. Pemuatan awal model mungkin tetap perlu selesai. **Ulangi** membacakan hasil terakhir; **Panduan penggunaan** menyediakan petunjuk yang dapat dibacakan.
+1. Install the APK `build/app/outputs/flutter-apk/app-release.apk` on an ARM64 device. Models ship inside the APK and are copied to internal storage on use; allow several GB of free space for the installation and those copies.
+2. Grant camera access and, when using voice, the microphone. Install an **offline Bahasa Indonesia** voice in the Android TTS settings. Check model and voice readiness through the application's Pengaturan (settings) screen.
+3. Choose **Objek → Mulai pindai**, **Tulisan → Baca tulisan**, or **Keluarga → Kenali wajah**. Register family members through **Kelola wajah keluarga**, with a companion present.
+4. For **Ukur jarak** (measure distance), hold the camera steady across three readings. The result is an estimate; one model serves both indoors and outdoors.
+5. For **Baca rupiah** (read rupiah), aim at a single banknote so that the words BANK INDONESIA, the numeric denomination, and the spelled-out denomination are legible. Unclear or non-matching results are rejected. Coins are not read.
+6. Press **Perintah** (command), wait for the microphone-ready status, then say: `pindai`, `tulisan`, `keluarga`, `jarak`, `rupiah`, `jelaskan foto`, `ulangi`, or `berhenti`. Recording ends after a pause of about one second, waits up to eight seconds if no speech has started, and is capped at 30 seconds.
+7. Press **Tanya dengan suara** (ask by voice) to ask Qwen a question locally. Examples: "Di depan saya ada apa?" or "Bacakan tulisan ini". Thinking is off by default; the output budget is 128 tokens, or 512 when it is on.
+8. **Berhenti** (stop) cancels processing and speech. An initial model load may still have to finish. **Ulangi** (repeat) speaks the last result again; **Panduan penggunaan** (usage guide) provides instructions that can be read aloud.
 
-Untuk penjelasan foto online, isi API key dan model berkemampuan gambar di Pengaturan, aktifkan mode online, lalu tekan **Jelaskan foto**. Satu foto dikirim ke layanan; narasi tetap memakai TTS perangkat.
+For online photo description, fill in an API key and an image-capable model in Pengaturan, enable online mode, then press **Jelaskan foto**. One photo is sent to the service; narration still uses the device TTS.
 
-## Build APK
+## Building the APK
 
-Lingkungan proyek menggunakan Flutter **3.47.4**, Dart **3.13.3**, JDK 17+ (mesin build memakai JBR 21), Android SDK 36, NDK 28.2.13676358, CMake 3.22.1, dan Gradle 9.3.1. SDK Flutter khusus proyek berada di `.tools/flutter`.
+The project environment uses Flutter **3.47.4**, Dart **3.13.3**, JDK 17+ (the build machine uses JBR 21), Android SDK 36, NDK 28.2.13676358, CMake 3.22.1, and Gradle 9.3.1. The project-local Flutter SDK lives in `.tools/flutter`.
 
-Setelah SDK, sumber Whisper, dan semua aset model tersedia:
+Once the SDK, the Whisper sources, and every model asset are available:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/flutter.ps1 pub get
@@ -49,9 +49,9 @@ powershell -ExecutionPolicy Bypass -File scripts/flutter.ps1 build apk --release
 python scripts/verify_qwen_apk.py
 ```
 
-**Hasil:** `build/app/outputs/flutter-apk/app-release.apk`. APK menggunakan debug signing key untuk demo. Biner APK, model, SDK, cache, dan kredensial tidak dimasukkan ke Git.
+**Result:** `build/app/outputs/flutter-apk/app-release.apk`. The APK uses a debug signing key for demos. APK binaries, models, SDKs, caches, and credentials are not committed to Git.
 
-Jika Git melaporkan ownership SDK berbeda, gunakan pengecualian untuk proses terminal tersebut:
+If Git reports different ownership for the SDK, apply an exception for that terminal process:
 
 ```powershell
 $env:GIT_CONFIG_COUNT = '1'
@@ -59,11 +59,11 @@ $env:GIT_CONFIG_KEY_0 = 'safe.directory'
 $env:GIT_CONFIG_VALUE_0 = "$($PWD.Path.Replace('\', '/'))/.tools/flutter"
 ```
 
-Jika cache Gradle berada di profil pengguna lain dari proses build, atur `GRADLE_USER_HOME` ke direktori cache yang sesuai. Pada mesin pengembangan ini: `C:/Users/felix/.gradle`.
+If the Gradle cache sits under a different user profile from the build process, point `GRADLE_USER_HOME` at the matching cache directory. On this development machine: `C:/Users/felix/.gradle`.
 
-## Menyiapkan aset dari sumber
+## Preparing assets from source
 
-Model besar dan runtime vendor diabaikan Git. Clone repository saja belum cukup untuk build lengkap.
+Large models and vendor runtimes are gitignored. Cloning the repository is not enough for a complete build.
 
 ```powershell
 git -c core.longpaths=true clone --depth 1 --branch 3.47.4 https://github.com/flutter/flutter.git .tools/flutter
@@ -74,37 +74,37 @@ python -m venv .venv
 .\.venv\Scripts\python.exe scripts/prepare_models.py
 ```
 
-`prepare_models.py` menyiapkan model dasar, detektor objek, dan depth. Exporter objek memakai Ultralytics 8.2.82; exporter depth memakai instalasi terpisah 8.4.150. Pemeriksaan ONNX/PyTorch memastikan kesesuaian ekspor, bukan akurasi di perangkat.
+`prepare_models.py` prepares the base models, the object detector, and depth. The object exporter uses Ultralytics 8.2.82; the depth exporter uses a separate 8.4.150 installation. The ONNX/PyTorch checks confirm export consistency, not on-device accuracy.
 
-**Qwen 0.5.0 memerlukan langkah tambahan.** `scripts/prepare_qwen35_bundle.py` menggunakan paket `litert-lm-builder==0.17.0`, sumber `.models/qwen35_mm_q8_ekv2048.litertlm`, dan `.models/qwen35-tokenizer-config.json`. Sumber model dan checksum ada di [models.lock.json](models.lock.json); checksum template diperiksa oleh skrip. Ketiga prasyarat tersebut harus tersedia sebelum menjalankan:
+**Qwen 0.5.0 requires extra steps.** `scripts/prepare_qwen35_bundle.py` uses the `litert-lm-builder==0.17.0` package, the `.models/qwen35_mm_q8_ekv2048.litertlm` source, and `.models/qwen35-tokenizer-config.json`. Model sources and checksums are in [models.lock.json](models.lock.json); the script verifies the template checksum. All three prerequisites must be present before running:
 
 ```powershell
 python -m pip install --target .tools/litert-validation/python litert-lm-builder==0.17.0
 python scripts/prepare_qwen35_bundle.py
 ```
 
-Skrip memperbarui metadata runtime/template, memastikan bobot tidak berubah, lalu menulis aset dan manifest. Penyiapan Qwen dari checkout baru belum berupa satu perintah unduhan otomatis. Jangan memakai `prepare_qwen.py` untuk build 0.5.0: skrip itu menyiapkan model Qwen3 lama. Jangan menjalankan `prepare_models.py --legacy-depth` untuk runtime saat ini.
+The script updates the runtime and template metadata, confirms the weights are unchanged, then writes the assets and the manifest. Preparing Qwen from a fresh checkout is not yet a single download command. Do not use `prepare_qwen.py` for a 0.5.0 build: that script prepares the older Qwen3 model. Do not run `prepare_models.py --legacy-depth` for the current runtime.
 
-Semua aset wajib diverifikasi SHA-256 saat build release dan saat ekstraksi di perangkat. Detail model, preprocessing, sumber, serta batas lisensi ada di [MODEL_CARD.md](MODEL_CARD.md).
+Every asset is SHA-256 verified during a release build and during extraction on the device. Model details, preprocessing, sources, and license limits are in [MODEL_CARD.md](MODEL_CARD.md).
 
-## Struktur proyek
+## Project structure
 
 ```text
-lib/                         Antarmuka Flutter, narasi, dan pemetaan perintah
-android/app/src/main/kotlin/  Kamera, inferensi, suara, dan penyimpanan native
-android/app/src/main/cpp/     JNI Whisper dan CMake
-test/                        Tes Flutter dan pemeriksaan native Java
-scripts/                     Penyiapan model, build, dan audit APK
-evaluation/                  Protokol, skema alat, dan CSV penelitian
-models.lock.json             Versi, sumber, dan checksum model
+lib/                         Flutter interface, narration, and command mapping
+android/app/src/main/kotlin/  Native camera, inference, speech, and storage
+android/app/src/main/cpp/     Whisper JNI and CMake
+test/                        Flutter tests and native Java checks
+scripts/                     Model preparation, build, and APK audit
+evaluation/                  Protocols, tool schemas, and research CSVs
+models.lock.json             Model versions, sources, and checksums
 ```
 
-- [PROGRESS.md](PROGRESS.md): status implementasi dan pekerjaan lanjutan.
-- [VALIDATION.md](VALIDATION.md): hasil tes, build, dan checksum APK.
-- [evaluation/PROTOCOL.md](evaluation/PROTOCOL.md): prosedur pengambilan data. Jalankan `python scripts/evaluate.py evaluation` untuk agregasi CSV; data kosong tidak dianggap berhasil.
+- [PROGRESS.md](PROGRESS.md): implementation status and follow-up work.
+- [VALIDATION.md](VALIDATION.md): test results, builds, and APK checksums.
+- [evaluation/PROTOCOL.md](evaluation/PROTOCOL.md): the data collection procedure. Run `python scripts/evaluate.py evaluation` to aggregate the CSVs; empty data does not count as a pass.
 
-## Privasi dan batas penggunaan
+## Privacy and usage limits
 
-Mode offline tidak memanggil layanan foto online. Profil keluarga disimpan terenkripsi dengan Android Keystore; foto kamera tidak disimpan ke galeri dan backup aplikasi dinonaktifkan. CSV runtime berisi operasi, waktu, latensi, dan status keberhasilan.
+Offline mode does not call the online photo service. Family profiles are stored encrypted with the Android Keystore; camera photos are not saved to the gallery and application backup is disabled. The runtime CSV records the operation, time, latency, and success status.
 
-Akurasi dan performa di Redmi belum diukur. Pengenalan wajah belum memiliki liveness dan bukan autentikasi. Pembacaan rupiah tidak membuktikan keaslian uang. Perkiraan jarak dan deteksi objek tidak menggantikan alat bantu mobilitas atau memastikan jalan aman. Status lisensi setiap model tercantum pada model card; proyek ini merupakan prototipe penelitian/demo.
+Accuracy and performance on the Redmi have not been measured. Face recognition has no liveness detection and is not authentication. A rupiah reading does not prove a banknote is genuine. Distance estimates and object detection do not replace a mobility aid and do not guarantee a safe path. Each model's license status is listed in the model card; this project is a research and demo prototype.

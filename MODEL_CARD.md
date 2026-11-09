@@ -1,42 +1,42 @@
-# Model dan kontrak inferensi
+# Models and inference contracts
 
-Seluruh model adalah baseline pretrained. Versi dan hash dicatat di `models.lock.json`; target akurasi belum dibuktikan pada Redmi.
+Every model is a pretrained baseline. Versions and hashes are recorded in `models.lock.json`; no accuracy target has been demonstrated on the Redmi.
 
-| Fungsi | Model/runtime | Kontrak |
+| Function | Model/runtime | Contract |
 | --- | --- | --- |
-| Objek | YOLOv8n Open Images V7, ONNX Runtime | RGB 640×640 float32 /255, letterbox RGB 114; NCHW 1×3×640×640; output 1×605×8400 (xywh + 601 skor), threshold 0,4, NMS lintas kelas IoU 0,5, maksimal 10 objek |
-| Wajah | ML Kit + MobileFaceNet | Alignment dua mata, RGB 112×112 float32 `(pixel−128)/128`; embedding 192 dimensi, normalisasi L2 |
-| Jarak | YOLO26n-depth, ONNX Runtime CPU | RGB /255, letterbox RGB 114 pada 640×640; ONNX input NCHW 1×3×640×640, output 1×1×640×640 dalam meter |
-| Tulisan | ML Kit Text Recognition Latin bundled | Foto upright, teks cetak Latin |
-| Rupiah | OCR ML Kit + aturan pencocokan tulisan | Harus ada BANK INDONESIA, RUPIAH, serta nominal angka dan huruf yang cocok dan tunggal; bukan model klasifikasi uang atau autentikasi |
-| Perintah | Whisper tiny multilingual, whisper.cpp v1.8.3 | PCM mono 16 kHz, endpoint berbasis energi, maksimum 30 detik, bahasa `id`, no-context, CPU maksimal 4 thread |
-| Suara | Android TTS | Voice Indonesia tanpa kebutuhan jaringan dan tanpa penanda voice belum terpasang |
-| Foto online | OpenAI Responses API | JPEG sisi panjang <=1024 px; `store=false`, output maksimum 600 token; model/key dari pengaturan |
+| Objects | YOLOv8n Open Images V7, ONNX Runtime | RGB 640×640 float32 /255, letterbox RGB 114; NCHW 1×3×640×640; output 1×605×8400 (xywh plus 601 scores), threshold 0.4, cross-class NMS IoU 0.5, at most 10 objects |
+| Faces | ML Kit plus MobileFaceNet | Two-eye alignment, RGB 112×112 float32 `(pixel−128)/128`; 192-dimension embedding, L2 normalized |
+| Distance | YOLO26n-depth, ONNX Runtime CPU | RGB /255, letterbox RGB 114 at 640×640; ONNX input NCHW 1×3×640×640, output 1×1×640×640 in metres |
+| Text | ML Kit Text Recognition Latin, bundled | Upright photo, printed Latin text |
+| Rupiah | ML Kit OCR plus text matching rules | BANK INDONESIA and RUPIAH must be present, along with a single matching numeric and spelled-out denomination; this is not a banknote classification or authentication model |
+| Commands | Whisper tiny multilingual, whisper.cpp v1.8.3 | PCM mono 16 kHz, energy-based endpointing, 30 seconds maximum, language `id`, no-context, at most 4 CPU threads |
+| Speech | Android TTS | An Indonesian voice that needs no network and carries no not-yet-installed marker |
+| Online photo | OpenAI Responses API | JPEG with a long side <=1024 px; `store=false`, output capped at 600 tokens; model and key come from the settings |
 
-## Qwen suara lokal (0.5.0)
+## Local Qwen voice (0.5.0)
 
-Qwen3.5-0.8B memakai konversi komunitas LiteRT dynamic INT8, konteks 2048, dan runtime LiteRT-LM Android 0.17.0 CPU. Aset hasil repack berukuran 1.159.760.881 byte, SHA-256 `49a077c27d63945da44289d8d8054cd231dfaaf5192167bff22f47ab9a258fc2`. Sumber konversi GabrieleConte dipatok revisi `766ec4afaaeeda64da162c458bac1efc0d27cf9e` dalam `models.lock.json`, dengan metadata lisensi Apache-2.0. Skrip repack menambahkan metadata state hybrid attention dan template percakapan; hash setiap bagian bobot dibandingkan sebelum dan sesudah repack.
+Qwen3.5-0.8B uses the LiteRT community dynamic INT8 conversion, a 2048 context, and the LiteRT-LM Android 0.17.0 CPU runtime. The repacked asset is 1,159,760,881 bytes, SHA-256 `49a077c27d63945da44289d8d8054cd231dfaaf5192167bff22f47ab9a258fc2`. The GabrieleConte conversion source is pinned to revision `766ec4afaaeeda64da162c458bac1efc0d27cf9e` in `models.lock.json`, with Apache-2.0 license metadata. The repack script adds hybrid attention state metadata and a conversation template; the hash of every weight shard is compared before and after the repack.
 
-Input berasal dari transkrip Whisper, bukan piksel. Meskipun bundle menyertakan encoder/adapter visual, aplikasi tidak mengirim gambar langsung ke Qwen. Setiap pertanyaan model membuat percakapan baru; engine dipakai ulang. Switch mengirim `enable_thinking` ke template dan membedakan sampling/anggaran keluaran 128 atau 512 token. Teks bertanda `<think>` disaring sebelum TTS; penalaran yang tidak selesai menghasilkan pesan untuk mencoba tanpa Thinking.
+The input is a Whisper transcript, not pixels. Although the bundle ships a visual encoder and adapter, the application does not send images to Qwen. Every model question opens a new conversation; the engine is reused. The switch passes `enable_thinking` to the template and selects between a 128-token and a 512-token sampling and output budget. Text marked `<think>` is filtered before TTS; reasoning that does not finish produces a message suggesting another attempt with Thinking off.
 
-Pertanyaan kamera eksplisit diteruskan langsung ke `detect_objects` atau `read_text`. Permintaan alat dari model hanya menerima dua nama tersebut. Hasil kamera dinarasikan langsung tanpa putaran generasi tambahan. Ini pemilihan alat berdasarkan pertanyaan, bukan mode hands-free atau navigasi otomatis.
+Explicit camera questions route straight to `detect_objects` or `read_text`. A tool request from the model is accepted only for those two names. Camera results are narrated directly, with no further generation pass. This is tool selection driven by the question, not a hands-free mode or automatic navigation.
 
-Log eksperimen desktop sebelumnya menunjukkan jawaban umum yang tidak konsisten dan berulang. Keberhasilan pemuatan runtime bukan bukti kualitas jawaban, pemahaman Bahasa Indonesia, atau Thinking. Belum ada benchmark HP. Model Qwen3-0.6B INT4 versi 0.4.0 tidak lagi menjadi aset aktif.
+Earlier desktop experiment logs show inconsistent and repetitive general answers. A successful runtime load is not evidence of answer quality, Bahasa Indonesia comprehension, or Thinking behaviour. There is no on-device benchmark. The Qwen3-0.6B INT4 model from 0.4.0 is no longer an active asset.
 
-## Kedalaman dan keluarga
+## Depth and family
 
-Peta **metric depth** YOLO26n-depth dipakai langsung, termasuk kalibrasi bawaan bobot; tidak ada penyelarasan skala per gambar terhadap ground truth. RGB dinormalisasi /255. Letterbox mempertahankan aspek gambar dan diisi RGB 114. Koordinat ROI memakai skala/padding yang sama. Satu model dipakai untuk dalam dan luar ruangan. Export branch resmi menyertakan upsampling bilinear 4× menjadi ukuran input. Resolusi eksperimen 640 berbeda dari resolusi training bobot 768 dan perlu diuji akurasinya. Runtime saat ini CPU dua thread, belum GPU/NPU.
+The YOLO26n-depth **metric depth** map is used directly, including the calibration built into the weights; there is no per-image scale alignment against ground truth. RGB is normalized /255. The letterbox preserves the image aspect and pads with RGB 114. ROI coordinates use the same scale and padding. One model serves both indoors and outdoors. The official export branch includes a 4× bilinear upsample back to the input size. The experimental 640 resolution differs from the weights' 768 training resolution and its accuracy needs testing. The current runtime is two-thread CPU, not GPU or NPU.
 
-ROI adalah 40% tengah bounding box. Minimal 70% sampel berada di 0,5–5 m; median absolute deviation <=max(0,25 m, 20% median). Tiga pembacaan dicocokkan menurut kelas/IoU >=0,5. Terima jika semuanya tersedia dan selisih dari median <=max(0,5 m, 20% median); ucapkan perkiraan dibulatkan 0,5 m. Ini kedalaman sumbu kamera, bukan sensor terkalibrasi. Fixed resolution dan letterbox harus diuji tersendiri.
+The ROI is the middle 40% of the bounding box. At least 70% of samples must fall within 0.5-5 m; the median absolute deviation must be <=max(0.25 m, 20% of the median). Three readings are matched by class and IoU >=0.5. Accept when all are available and each differs from the median by <=max(0.5 m, 20% of the median); speak the estimate rounded to 0.5 m. This is camera-axis depth, not a calibrated sensor. The fixed resolution and the letterbox need separate testing.
 
-Keluarga: lima sampel/profil, maksimum 20 profil. Matching memakai rata-rata tiga cosine similarity tertinggi. Threshold awal 0,72 dan margin kandidat 0,08 **belum dikalibrasi**. Pendaftaran menolak wajah ganda, terlalu kecil, sudut ekstrem, cahaya buruk, dan pose terlalu mirip. Sistem bukan autentikasi dan tidak memiliki liveness detection. Nama ditentukan pengguna.
+Family: five samples per profile, 20 profiles maximum. Matching averages the three highest cosine similarities. The initial 0.72 threshold and 0.08 candidate margin are **not calibrated**. Registration rejects multiple faces, faces that are too small, extreme angles, poor lighting, and poses too similar to an existing sample. The system is not authentication and has no liveness detection. Names are chosen by the user.
 
-## Sumber dan lisensi
+## Sources and licenses
 
-- [Ultralytics Open Images V7](https://docs.ultralytics.com/datasets/detect/open-images-v7/): YOLOv8n 601 kelas, bobot resmi assets v8.2.0, SHA-256 sumber di `models.lock.json`, exporter 8.2.82, AGPL-3.0. Terjemahan 601 label ada di `scripts/object_labels_id.json`. Kelas berjenjang dapat berimpit; NMS lintas kelas mengurangi duplikasi, tetapi juga bisa menekan benda berbeda yang sangat berimpit. Akurasi per kelas dan kecepatan di Redmi belum diukur untuk model baru.
-- [YOLO26n-depth](https://docs.ultralytics.com/tasks/depth): bobot resmi Ultralytics assets `v8.4.0`, SHA-256 `befed1b8561d8b2eaa66274b070cdfc9c44853bda6d6d62a04759f9383af74e9`; exporter `ultralytics==8.4.150`, AGPL-3.0. ONNX diperiksa dan dibandingkan dengan PyTorch pada tiga input sintetis. Ini validasi ekspor, bukan pengujian akurasi jarak. Menggantikan dua model Depth Anything V2 sejak 0.3.0; biner lama disimpan di `.models/previous-depth_*.onnx` pada komputer migrasi.
-- [whisper.cpp](https://github.com/ggml-org/whisper.cpp): v1.8.3, revisi `2eeeba56e9edd762b4b38467bab96c2517163158`, MIT. Model tiny multilingual dari repositori konversi ggerganov dipatok revisinya.
-- [Contoh MobileFaceNet](https://github.com/estebanuri/face_recognition): revisi `dbf9732725cf1ab6e06b412651bb4858b5dfe0df`. Repositori contoh tidak mencantumkan metadata lisensi saat diperiksa; lisensi bobot dan asal dataset belum terverifikasi. Kesiapan redistribusi publik belum dinyatakan; prototipe saat ini untuk demo pribadi.
-- ML Kit/Android SDK mengikuti ketentuan penerbit. Tidak ada kredensial OpenAI dalam aset.
+- [Ultralytics Open Images V7](https://docs.ultralytics.com/datasets/detect/open-images-v7/): YOLOv8n, 601 classes, official assets v8.2.0 weights, source SHA-256 in `models.lock.json`, exporter 8.2.82, AGPL-3.0. The 601 label translations are in `scripts/object_labels_id.json`. Hierarchical classes can overlap; cross-class NMS reduces duplication, but it can also suppress distinct objects that overlap heavily. Per-class accuracy and speed on the Redmi have not been measured for the new model.
+- [YOLO26n-depth](https://docs.ultralytics.com/tasks/depth): official Ultralytics assets `v8.4.0` weights, SHA-256 `befed1b8561d8b2eaa66274b070cdfc9c44853bda6d6d62a04759f9383af74e9`; exporter `ultralytics==8.4.150`, AGPL-3.0. The ONNX export was checked and compared against PyTorch on three synthetic inputs. That validates the export, not distance accuracy. It replaced two Depth Anything V2 models in 0.3.0; the old binaries are kept at `.models/previous-depth_*.onnx` on the migration machine.
+- [whisper.cpp](https://github.com/ggml-org/whisper.cpp): v1.8.3, revision `2eeeba56e9edd762b4b38467bab96c2517163158`, MIT. The tiny multilingual model comes from the ggerganov conversion repository at a pinned revision.
+- [MobileFaceNet example](https://github.com/estebanuri/face_recognition): revision `dbf9732725cf1ab6e06b412651bb4858b5dfe0df`. The example repository carried no license metadata when checked; the weight license and the dataset origin are unverified. Readiness for public redistribution has not been established; the current prototype is for private demonstration.
+- ML Kit and the Android SDK follow their publishers' terms. No OpenAI credentials are present in the assets.
 
-Hash diverifikasi kembali saat ekstraksi di HP. Model Hugging Face dibandingkan dengan SHA-256 LFS penerbit; biner TFLite dipatok versi/revisi dan hash hasil unduhan dicatat. Kesamaan ONNX/PyTorch pada input sintetis adalah uji ekspor, bukan bukti akurasi dunia nyata.
+Hashes are verified again during extraction on the device. Hugging Face models are compared against the publisher's LFS SHA-256; TFLite binaries are pinned by version and revision, and the downloaded hash is recorded. ONNX/PyTorch agreement on synthetic inputs is an export test, not evidence of real-world accuracy.
