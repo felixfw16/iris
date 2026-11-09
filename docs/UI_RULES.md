@@ -243,7 +243,7 @@ has since moved to 952 lines, so the line numbers below are current rather than 
 | 6 | Three font sizes raised off the floor: the mode status line 11 to 13, the result heading 12 to 13, the disclaimer 12 to 14 |
 | 7 | A `_gated()` helper in `HomeView` and `FamilyView` attaches a `Semantics(hint:)` stating why a control is unavailable, across 12 call sites. The hint distinguishes microphone recording from a pending request |
 | 9 | `ExcludeSemantics` now wraps the framing crosshair, which previously used `IgnorePointer` alone, and both platform views inside `CameraPreview` |
-| 11 | All 13 product-name sites renamed to role and location: `'Jelaskan foto'`, `'Tanya dengan suara'`, `'Mode berpikir lebih lama'`, `'Model bahasa di perangkat'`, `'Penjelasan oleh layanan online'`, `'API key layanan online'`. Four of these were spoken strings reaching the user through Text-to-Speech, not widget labels |
+| 11 | All 13 product-name sites renamed to role and location: `'Jelaskan foto'`, `'Tanya dengan suara'`, `'Mode berpikir lebih lama'`, `'Model bahasa di perangkat'`, `'Penjelasan oleh layanan online'`, `'API key layanan online'`. Four of these were spoken strings reaching the user through Text-to-Speech, not widget labels. A second pass carried the same renames into `usageGuide` at `lib/domain.dart:3-30`, which the first pass missed because it scanned `lib/main.dart` only. Seven lines there cited a control name that no longer existed or contradicted the design: three renamed labels, the mode wording, the Settings voice entry, "Pendamping dapat mendaftarkan wajah", which told the user a companion registers faces, and a closing line naming TalkBack alone. All 17 control names the guide mentions now match a literal in `lib/main.dart` exactly |
 | 12 | Added `test/a11y_test.dart`, running all four guidelines against `HomeView`, `SettingsView` and `FamilyView` |
 
 `FamilyView` rendered `CameraPreview()` unconditionally, with no permission gate and no
@@ -285,7 +285,7 @@ We did not compile or run anything. No Flutter SDK is installed on this machine.
 | Check | Method | Result |
 | --- | --- | --- |
 | Delimiter balance | Brace and paren scan with strings and comments stripped, `lib/main.dart` and both test files | 0 unclosed, 0 mismatched |
-| Product names removed | `grep` for GPT, OpenAI, YOLO, Qwen3, Thinking Qwen, Pendamping | 0 hits |
+| Product names removed | `grep` for GPT, OpenAI, YOLO, Qwen3, Thinking Qwen, Pendamping, over `lib/main.dart` only | 0 hits in `lib/main.dart`, and 0 over `lib/` once the `usageGuide` pass landed. The scope is stated because an unscoped 0 reads as repo-wide |
 | Font floor | `grep` for `fontSize: 1[0-2],` | 0 hits |
 | Native preview exclusion | `grep` over `ios/` and `android/` | iOS sets `isAccessibilityElement = false`; Android declares nothing. The two agree with the Flutter-side exclusion |
 | Which layer governs a platform view | Not run | Unknown |

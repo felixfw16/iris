@@ -1,12 +1,14 @@
 enum ScanMode { objects, text, family }
 
 const usageGuide = 'Selamat datang di IRIS. '
-    'Aplikasi dimulai dalam mode offline.\n\n'
+    'Aplikasi dimulai dalam Mode di perangkat. '
+    'Semua proses berjalan di telepon.\n\n'
     'Pilih Objek, lalu Mulai pindai untuk mendengar objek di kiri, depan, atau kanan. '
     'Hingga sepuluh objek dibacakan. Gerakkan kamera perlahan.\n\n'
     'Pilih Tulisan, arahkan kamera ke teks, lalu tekan Baca tulisan. '
     'Pilih Keluarga, lalu Kenali wajah untuk mengenali orang yang sudah didaftarkan. '
-    'Pendamping dapat mendaftarkan wajah melalui Kelola wajah keluarga.\n\n'
+    'Anda dapat mendaftarkan wajah sendiri melalui Kelola wajah keluarga. '
+    'Aplikasi memandu arah kamera dengan suara.\n\n'
     'Baca rupiah membaca tulisan nominal satu lembar uang. Arahkan sisi dengan tulisan '
     'BANK INDONESIA, angka nominal, dan nominal dalam huruf ke kamera. '
     'Fitur ini tidak memeriksa keaslian uang.\n\n'
@@ -18,15 +20,15 @@ const usageGuide = 'Selamat datang di IRIS. '
     'jarak, rupiah, jelaskan foto, ulangi, atau berhenti. '
     'Rekaman berhenti otomatis setelah jeda sekitar satu detik. '
     'Anda dapat berbicara hingga tiga puluh detik; bila belum bicara, mikrofon menunggu delapan detik.\n\n'
-    'Tanya Qwen dengan suara merekam pertanyaan, memprosesnya sepenuhnya di perangkat, '
+    'Tanya dengan suara merekam pertanyaan, memprosesnya sepenuhnya di perangkat, '
     'lalu membacakan jawaban. Tanyakan di depan saya ada apa untuk memeriksa objek melalui kamera, '
-    'atau bacakan tulisan untuk membaca teks. Aktifkan Thinking untuk pertanyaan yang membutuhkan penalaran; '
+    'atau bacakan tulisan untuk membaca teks. Aktifkan Mode berpikir lebih lama untuk pertanyaan yang membutuhkan penalaran; '
     'matikan agar jawaban lebih cepat dan singkat.\n\n'
     'Ulangi membacakan hasil terakhir. Berhenti menghentikan pemindaian, '
     'rekaman, dan pembacaan suara.\n\n'
-    'Jelaskan foto dengan GPT memerlukan pengaturan online dan mengirim satu foto. '
-    'Periksa kesiapan model dan suara offline Bahasa Indonesia di Pengaturan. '
-    'Dengan TalkBack, geser untuk berpindah kontrol dan ketuk dua kali untuk memilih.';
+    'Jelaskan foto memerlukan pengaturan online dan mengirim satu foto. '
+    'Periksa kesiapan model dan Suara Bahasa Indonesia di Pengaturan. '
+    'Dengan pembaca layar, geser untuk berpindah kontrol dan ketuk dua kali untuk memilih.';
 
 enum VoiceCommand {
   objects,
