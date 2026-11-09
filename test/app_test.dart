@@ -44,8 +44,8 @@ void main() {
     qwenAnswer = Completer<String>();
     await tester.pumpWidget(const NetraApp());
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.text('Tanya Qwen dengan suara'), 300);
-    await tester.tap(find.text('Tanya Qwen dengan suara'));
+    await tester.scrollUntilVisible(find.text('Tanya dengan suara'), 300);
+    await tester.tap(find.text('Tanya dengan suara'));
     await tester.pump();
     await tester.pump();
     expect(calls.lastWhere((c) => c.method == 'askQwen').arguments['thinking'],
@@ -67,22 +67,22 @@ void main() {
     await tester.pumpWidget(const NetraApp());
     await tester.pumpAndSettle();
     expect(find.text('IRIS'), findsOneWidget);
-    expect(find.text('OFFLINE · DIPROSES DI PERANGKAT'), findsOneWidget);
+    expect(find.text('DI PERANGKAT · TANPA UNGGAH FOTO'), findsOneWidget);
     expect(find.text('Mulai pindai'), findsOneWidget);
     expect(calls.any((call) => call.method == 'describePhoto'), isFalse);
     expect(tester.takeException(), isNull);
   });
-  testWidgets('GPT action is blocked before native image upload when offline',
+  testWidgets('online action is blocked before native image upload on device',
       (tester) async {
     await tester.pumpWidget(const NetraApp());
     await tester.pumpAndSettle();
-    final button = find.text('Jelaskan foto dengan GPT');
+    final button = find.text('Jelaskan foto');
     await tester.scrollUntilVisible(button, 400);
     await tester.tap(button);
     await tester.pumpAndSettle();
     expect(calls.any((call) => call.method == 'describePhoto'), isFalse);
     expect(calls.where((c) => c.method == 'speak').last.arguments['text'],
-        contains('Mode offline aktif'));
+        contains('Mode di perangkat aktif'));
   });
   testWidgets('settings reports the unified depth model as available',
       (tester) async {
@@ -91,7 +91,7 @@ void main() {
     await tester.tap(find.byTooltip('Pengaturan dan kesiapan model'));
     await tester.pumpAndSettle();
     final tile = find.ancestor(
-        of: find.text('Perkiraan jarak (YOLO26n-depth)'),
+        of: find.text('Perkiraan jarak'),
         matching: find.byType(ListTile));
     expect(tile, findsOneWidget);
     expect(find.descendant(of: tile, matching: find.text('Model tersedia')),
@@ -107,14 +107,14 @@ void main() {
     expect(find.text('Baca tulisan'), findsOneWidget);
     expect(calls.any((c) => c.method == 'stop'), isTrue);
   });
-  testWidgets('Qwen voice button passes thinking switch and speaks its answer',
+  testWidgets('voice question passes thinking switch and speaks its answer',
       (tester) async {
     await tester.pumpWidget(const NetraApp());
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.text('Thinking Qwen'), 300);
-    await tester.tap(find.text('Thinking Qwen'));
+    await tester.scrollUntilVisible(find.text('Mode berpikir lebih lama'), 300);
+    await tester.tap(find.text('Mode berpikir lebih lama'));
     await tester.pump();
-    await tester.tap(find.text('Tanya Qwen dengan suara'));
+    await tester.tap(find.text('Tanya dengan suara'));
     await tester.pumpAndSettle();
     final qwen = calls.lastWhere((call) => call.method == 'askQwen');
     expect(qwen.arguments['thinking'], isTrue);
@@ -195,6 +195,18 @@ void main() {
     await tester.pumpAndSettle();
     expect(tester.widget<Semantics>(result()).properties.liveRegion, isTrue);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('family view offers a labeled camera affordance before permission',
+      (tester) async {
+    await tester.pumpWidget(const NetraApp());
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(find.text('Kelola wajah keluarga'), 300);
+    await tester.tap(find.text('Kelola wajah keluarga'));
+    await tester.pumpAndSettle();
+    expect(find.text('Wajah keluarga'), findsOneWidget);
+    expect(find.widgetWithText(TextButton, 'Aktifkan kamera'), findsOneWidget);
+    expect(find.byType(CameraPreview), findsNothing);
   });
 
   testWidgets('guide supports large text on a narrow phone', (tester) async {

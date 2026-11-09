@@ -1,9 +1,30 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'domain.dart';
 import 'native_bridge.dart';
 import 'rupiah.dart';
+
+class CameraPreview extends StatelessWidget {
+  const CameraPreview({super.key});
+  static const viewType = 'id.sahabatnetra/camera';
+  @override
+  Widget build(BuildContext context) {
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.android:
+        return const ExcludeSemantics(child: AndroidView(viewType: viewType));
+      case TargetPlatform.iOS:
+        return const ExcludeSemantics(child: UiKitView(viewType: viewType));
+      default:
+        return const ColoredBox(
+            color: Color(0xff172930),
+            child: Center(
+                child: Text('Pratinjau kamera tidak tersedia pada platform ini.',
+                    textAlign: TextAlign.center)));
+    }
+  }
+}
 
 void main() => runApp(const NetraApp());
 
@@ -29,6 +50,10 @@ class NetraApp extends StatelessWidget {
                       fontSize: 17, fontWeight: FontWeight.w700))),
           outlinedButtonTheme: OutlinedButtonThemeData(
               style: OutlinedButton.styleFrom(minimumSize: const Size(64, 56))),
+          textButtonTheme: TextButtonThemeData(
+              style: TextButton.styleFrom(minimumSize: const Size(64, 48))),
+          iconButtonTheme: IconButtonThemeData(
+              style: IconButton.styleFrom(minimumSize: const Size(48, 48))),
           inputDecorationTheme:
               const InputDecorationTheme(border: OutlineInputBorder()),
         ),
@@ -79,6 +104,15 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       _show('Jalankan aplikasi di Android untuk memakai kamera dan AI.');
     }
   }
+
+  Widget _gated(Widget child) => MergeSemantics(
+      child: Semantics(
+          hint: !_busy && !_listening
+              ? null
+              : _listening
+                  ? 'Belum dapat dipakai, mikrofon sedang merekam'
+                  : 'Belum dapat dipakai, permintaan sebelumnya masih diproses',
+          child: child));
 
   void _show(String text, {bool announce = true}) {
     if (mounted) {
@@ -235,7 +269,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   Future<void> _describe() async {
     if (!_online) {
       await _say(
-          'Mode offline aktif. Aktifkan mode online di pengaturan untuk mengirim foto ke GPT.');
+          'Mode di perangkat aktif. Aktifkan mode online di pengaturan untuk mengirim foto ke layanan online.');
       return;
     }
     await _run(
@@ -314,7 +348,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       if (!mounted || generation != _generation) return;
       if (allowed != true) {
         setState(() => _listening = false);
-        await _say('Izin mikrofon diperlukan untuk bertanya kepada Qwen.');
+        await _say('Izin mikrofon diperlukan untuk mengajukan pertanyaan.');
         return;
       }
     } on PlatformException catch (error) {
@@ -338,7 +372,8 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       }
     } on PlatformException catch (error) {
       if (mounted && generation == _generation) {
-        await _say(error.message ?? 'Qwen lokal belum dapat menjawab.');
+        await _say(
+            error.message ?? 'Model di perangkat belum dapat menjawab.');
       }
     } finally {
       if (mounted && generation == _generation) {
@@ -431,14 +466,19 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                   size: 18, color: const Color(0xff80efce)),
               const SizedBox(width: 8),
               Expanded(
-                  child: Text(
-                      _online
-                          ? 'ONLINE · FOTO ATAS PERMINTAAN'
-                          : 'OFFLINE · DIPROSES DI PERANGKAT',
-                      style: const TextStyle(
-                          fontSize: 11,
-                          letterSpacing: 1.4,
-                          fontWeight: FontWeight.bold)))
+                  child: Semantics(
+                      label: _online
+                          ? 'Mode online. Foto dikirim hanya atas permintaan.'
+                          : 'Mode di perangkat. Semua proses berjalan di telepon.',
+                      child: ExcludeSemantics(
+                          child: Text(
+                              _online
+                                  ? 'ONLINE · FOTO ATAS PERMINTAAN'
+                                  : 'DI PERANGKAT · TANPA UNGGAH FOTO',
+                              style: const TextStyle(
+                                  fontSize: 13,
+                                  letterSpacing: 1.4,
+                                  fontWeight: FontWeight.bold)))))
             ]),
             const SizedBox(height: 20),
             const Text('Kenali sekitar.\nDengarkan hasilnya.',
@@ -475,7 +515,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                     height: 230,
                     child: Stack(fit: StackFit.expand, children: [
                       if (_cameraAllowed)
-                        const AndroidView(viewType: 'id.sahabatnetra/camera')
+                        const CameraPreview()
                       else
                         Container(
                             color: const Color(0xff172930),
@@ -491,43 +531,50 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                     },
                                     icon: const Icon(Icons.camera_alt_outlined),
                                     label: const Text('Aktifkan kamera')))),
-                      const IgnorePointer(
-                          child: Center(
-                              child: Icon(Icons.crop_free_rounded,
-                                  size: 100, color: Colors.white70))),
+                      const ExcludeSemantics(
+                          child: IgnorePointer(
+                              child: Center(
+                                  child: Icon(Icons.crop_free_rounded,
+                                      size: 100, color: Colors.white70)))),
                       Positioned(
                           left: 14,
                           bottom: 14,
-                          child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 8),
-                              decoration: BoxDecoration(
-                                  color: Colors.black87,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Text(_scanning
-                                  ? '● Pemindaian aktif'
-                                  : 'Kamera belakang'))),
+                          child: Semantics(
+                              label: _scanning
+                                  ? 'Pemindaian aktif'
+                                  : 'Kamera belakang siap',
+                              child: ExcludeSemantics(
+                                  child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 12, vertical: 8),
+                                      decoration: BoxDecoration(
+                                          color: Colors.black87,
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child: Text(_scanning
+                                          ? '● Pemindaian aktif'
+                                          : 'Kamera belakang'))))),
                     ]))),
             const SizedBox(height: 16),
-            FilledButton.icon(
+            _gated(FilledButton.icon(
                 onPressed: _busy || _listening ? null : _primary,
                 icon: Icon(
                     _scanning ? Icons.pause_rounded : Icons.play_arrow_rounded),
-                label: Text(primary)),
+                label: Text(primary))),
             const SizedBox(height: 12),
             Wrap(spacing: 10, runSpacing: 10, children: [
-              OutlinedButton.icon(
+              _gated(OutlinedButton.icon(
                   onPressed: _busy || _listening ? null : _distance,
                   icon: const Icon(Icons.straighten),
-                  label: const Text('Ukur jarak')),
-              OutlinedButton.icon(
+                  label: const Text('Ukur jarak'))),
+              _gated(OutlinedButton.icon(
                   onPressed: _busy || _listening ? null : _listen,
                   icon: const Icon(Icons.mic_none),
-                  label: const Text('Perintah')),
-              OutlinedButton.icon(
+                  label: const Text('Perintah'))),
+              _gated(OutlinedButton.icon(
                   onPressed: _busy || _listening ? null : _rupiah,
                   icon: const Icon(Icons.payments_outlined),
-                  label: const Text('Baca rupiah')),
+                  label: const Text('Baca rupiah'))),
             ]),
             const SizedBox(height: 18),
             Container(
@@ -542,17 +589,25 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                       Row(children: [
                         const Icon(Icons.graphic_eq, color: Color(0xff80efce)),
                         const SizedBox(width: 10),
-                        const Expanded(
-                            child: Text('HASIL PEMBACAAN',
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    letterSpacing: 1.3,
-                                    fontWeight: FontWeight.bold))),
+                        Expanded(
+                            child: Semantics(
+                                header: true,
+                                label: 'Hasil pembacaan',
+                                child: const ExcludeSemantics(
+                                    child: Text('HASIL PEMBACAAN',
+                                        style: TextStyle(
+                                            fontSize: 13,
+                                            letterSpacing: 1.3,
+                                            fontWeight: FontWeight.bold))))),
                         if (_busy || _listening)
-                          const SizedBox(
+                          SizedBox(
                               width: 20,
                               height: 20,
-                              child: CircularProgressIndicator(strokeWidth: 2))
+                              child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  semanticsLabel: _listening
+                                      ? 'Mikrofon sedang merekam'
+                                      : 'Sedang memproses permintaan'))
                       ]),
                       const SizedBox(height: 14),
                       Semantics(
@@ -562,14 +617,14 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                   const TextStyle(fontSize: 20, height: 1.45))),
                       const SizedBox(height: 12),
                       Wrap(spacing: 12, children: [
-                        TextButton.icon(
+                        _gated(TextButton.icon(
                             onPressed: _busy || _listening
                                 ? null
                                 : () => _say(_lastNarration.isEmpty
                                     ? 'Belum ada hasil.'
                                     : _lastNarration),
                             icon: const Icon(Icons.replay),
-                            label: const Text('Ulangi')),
+                            label: const Text('Ulangi'))),
                         TextButton.icon(
                             onPressed: _stop,
                             icon: const Icon(Icons.stop_circle_outlined),
@@ -577,28 +632,25 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                       ]),
                     ])),
             const SizedBox(height: 12),
-            OutlinedButton.icon(
+            _gated(OutlinedButton.icon(
                 onPressed: _busy || _listening ? null : _describe,
                 icon: const Icon(Icons.auto_awesome_outlined),
-                label: const Text('Jelaskan foto dengan GPT')),
+                label: const Text('Jelaskan foto'))),
             const SizedBox(height: 12),
-            Semantics(
-                container: true,
-                label: 'Mode berpikir Qwen lokal',
-                child: SwitchListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: const Text('Thinking Qwen'),
-                    subtitle: Text(_qwenThinking
-                        ? 'Aktif: jawaban lebih dipikirkan dan lebih lama'
-                        : 'Nonaktif: jawaban langsung dan singkat'),
-                    value: _qwenThinking,
-                    onChanged: _busy || _listening
-                        ? null
-                        : (value) => setState(() => _qwenThinking = value))),
-            FilledButton.icon(
+            _gated(SwitchListTile(
+                contentPadding: EdgeInsets.zero,
+                title: const Text('Mode berpikir lebih lama'),
+                subtitle: Text(_qwenThinking
+                    ? 'Aktif: jawaban lebih dipikirkan dan lebih lama'
+                    : 'Nonaktif: jawaban langsung dan singkat'),
+                value: _qwenThinking,
+                onChanged: _busy || _listening
+                    ? null
+                    : (value) => setState(() => _qwenThinking = value))),
+            _gated(FilledButton.icon(
                 onPressed: _busy || _listening ? null : _askQwen,
                 icon: const Icon(Icons.psychology_alt_outlined),
-                label: const Text('Tanya Qwen dengan suara')),
+                label: const Text('Tanya dengan suara'))),
             const SizedBox(height: 8),
             TextButton.icon(
                 onPressed: _family,
@@ -607,7 +659,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
             const SizedBox(height: 8),
             const Text(
                 'Jarak adalah estimasi kamera. Hasil penelitian belum menggantikan alat bantu mobilitas.',
-                style: TextStyle(fontSize: 12, color: Color(0xffb5c8d0))),
+                style: TextStyle(fontSize: 14, color: Color(0xffb5c8d0))),
           ])),
     );
   }
@@ -656,14 +708,14 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
         appBar: AppBar(title: const Text('Pengaturan')),
         body: ListView(padding: const EdgeInsets.all(20), children: [
-          const Text('Kesiapan offline',
+          const Text('Kesiapan model di perangkat',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           for (final name in {
             'objects': 'Deteksi objek',
             'face': 'Pengenalan keluarga',
-            'depth': 'Perkiraan jarak (YOLO26n-depth)',
+            'depth': 'Perkiraan jarak',
             'speech': 'Perintah suara',
-            'qwen': 'Qwen3.5-0.8B INT8 lokal'
+            'qwen': 'Model bahasa di perangkat'
           }.entries)
             ListTile(
                 contentPadding: EdgeInsets.zero,
@@ -679,26 +731,26 @@ class _SettingsPageState extends State<SettingsPage> {
               leading: const Icon(Icons.record_voice_over_outlined),
               title: const Text('Suara Bahasa Indonesia'),
               subtitle: Text(widget.status['ttsReady'] == true
-                  ? 'Suara offline siap'
-                  : 'Pasang suara offline Bahasa Indonesia pada pengaturan Android')),
+                  ? 'Suara di perangkat siap'
+                  : 'Pasang suara Bahasa Indonesia pada pengaturan telepon')),
           OutlinedButton(
               onPressed: () => widget.native.call<void>('ttsSettings'),
-              child: const Text('Pengaturan suara Android')),
+              child: const Text('Buka pengaturan suara telepon')),
           const SizedBox(height: 24),
-          const Text('Penjelasan GPT',
+          const Text('Penjelasan oleh layanan online',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           SwitchListTile(
               contentPadding: EdgeInsets.zero,
               title: const Text('Izinkan mode online'),
               subtitle: const Text(
-                  'Hanya tombol Jelaskan foto yang mengirim gambar ke OpenAI. Mode ini kembali offline ketika aplikasi dibuka ulang.'),
+                  'Hanya tombol Jelaskan foto yang mengirim gambar ke layanan online. Mode ini kembali diproses di perangkat ketika aplikasi dibuka ulang.'),
               value: _online,
               onChanged: (value) => setState(() => _online = value)),
           const SizedBox(height: 12),
           TextField(
               controller: _model,
               decoration: const InputDecoration(
-                  labelText: 'Model GPT dengan dukungan gambar',
+                  labelText: 'Model online dengan dukungan gambar',
                   hintText: 'Isi model ID yang tersedia pada akun Anda'),
               autocorrect: false),
           const SizedBox(height: 16),
@@ -710,7 +762,7 @@ class _SettingsPageState extends State<SettingsPage> {
               decoration: InputDecoration(
                   labelText: widget.status['hasApiKey'] == true
                       ? 'API key baru (kosong = pertahankan)'
-                      : 'API key OpenAI')),
+                      : 'API key layanan online')),
           const SizedBox(height: 12),
           const Text(
               'Kunci disimpan terenkripsi di HP untuk demo pribadi. Jangan membagikan kunci atau memasukkannya ke kode sumber.'),
@@ -747,30 +799,72 @@ class _FamilyPageState extends State<FamilyPage> {
   final _name = TextEditingController();
   List<Map<Object?, Object?>> _profiles = [];
   String _message =
-      'Pendamping dapat mendaftarkan 5 foto dengan arah wajah berbeda.';
+      'Daftarkan 5 foto dengan arah wajah berbeda. Sistem akan menyebutkan arahan lewat suara.';
   int _count = 0;
   bool _busy = false;
+  bool _announceMessage = false;
+  bool _cameraAllowed = false;
   @override
   void initState() {
     super.initState();
     unawaited(_load());
   }
 
+  Widget _gated(Widget child) => MergeSemantics(
+      child: Semantics(
+          hint: _busy
+              ? 'Belum dapat dipakai, pemeriksaan wajah sedang berjalan'
+              : null,
+          child: child));
+
   Future<void> _load() async {
+    var allowed = _cameraAllowed;
+    try {
+      allowed = (await widget.native.status())['cameraPermission'] == true;
+    } on PlatformException catch (_) {
+    } on MissingPluginException {}
     final profiles = await widget.native.call<List>('listFamily') ?? [];
     if (mounted)
-      setState(() => _profiles =
-          profiles.map((p) => Map<Object?, Object?>.from(p as Map)).toList());
+      setState(() {
+        _cameraAllowed = allowed;
+        _profiles =
+            profiles.map((p) => Map<Object?, Object?>.from(p as Map)).toList();
+      });
+  }
+
+  Future<void> _ensureCamera() async {
+    var allowed = false;
+    String? failure;
+    try {
+      allowed = await widget.native.call<bool>('requestCamera') ?? false;
+      if (!allowed)
+        failure =
+            'Izin kamera diperlukan. Aktifkan melalui pengaturan aplikasi.';
+    } on PlatformException catch (e) {
+      failure = e.message ?? 'Kamera tidak tersedia.';
+    }
+    if (!mounted) return;
+    setState(() {
+      _cameraAllowed = allowed;
+      if (failure != null) {
+        _message = failure;
+        _announceMessage = true;
+      }
+    });
   }
 
   Future<void> _capture() async {
     if (_name.text.trim().isEmpty) {
-      setState(() => _message = 'Isi nama panggilan terlebih dahulu.');
+      setState(() {
+        _message = 'Isi nama panggilan terlebih dahulu.';
+        _announceMessage = true;
+      });
       return;
     }
     setState(() => _busy = true);
     try {
       final allowed = await widget.native.call<bool>('requestCamera') ?? false;
+      if (mounted) setState(() => _cameraAllowed = allowed);
       if (!allowed)
         throw PlatformException(
             code: 'permission', message: 'Izin kamera diperlukan.');
@@ -780,8 +874,9 @@ class _FamilyPageState extends State<FamilyPage> {
       if (mounted)
         setState(() {
           _count = count;
+          _announceMessage = false;
           _message = count == 5
-              ? 'Profil tersimpan. Anda dapat mengenali wajah ini secara offline.'
+              ? 'Profil tersimpan. Anda dapat mengenali wajah ini di perangkat.'
               : 'Foto $count dari 5 diterima. Ubah sedikit arah wajah untuk foto berikutnya.';
         });
       await widget.native.speak(_message);
@@ -792,8 +887,10 @@ class _FamilyPageState extends State<FamilyPage> {
       }
     } on PlatformException catch (e) {
       if (mounted)
-        setState(
-            () => _message = e.message ?? 'Wajah belum dapat didaftarkan.');
+        setState(() {
+          _message = e.message ?? 'Wajah belum dapat didaftarkan.';
+          _announceMessage = true;
+        });
     } finally {
       if (mounted) setState(() => _busy = false);
     }
@@ -816,9 +913,17 @@ class _FamilyPageState extends State<FamilyPage> {
         const Text(
             'Daftarkan dengan sepengetahuan orang tersebut. Data wajah disimpan di HP dan bisa dihapus kapan saja.'),
         const SizedBox(height: 16),
-        const SizedBox(
+        SizedBox(
             height: 230,
-            child: AndroidView(viewType: 'id.sahabatnetra/camera')),
+            child: _cameraAllowed
+                ? const CameraPreview()
+                : ColoredBox(
+                    color: const Color(0xff172930),
+                    child: Center(
+                        child: TextButton.icon(
+                            onPressed: _ensureCamera,
+                            icon: const Icon(Icons.camera_alt_outlined),
+                            label: const Text('Aktifkan kamera'))))),
         const SizedBox(height: 16),
         TextField(
             controller: _name,
@@ -826,15 +931,17 @@ class _FamilyPageState extends State<FamilyPage> {
             maxLength: 40,
             decoration: const InputDecoration(
                 labelText: 'Nama panggilan, misalnya Istri')),
-        FilledButton.icon(
+        _gated(FilledButton.icon(
             onPressed: _busy ? null : _capture,
             icon: const Icon(Icons.camera_alt_outlined),
             label: Text(_busy
                 ? 'Memeriksa wajah…'
-                : 'Ambil foto ${_count + 1} dari 5')),
+                : 'Ambil foto ${_count + 1} dari 5'))),
         const SizedBox(height: 12),
-        Text(_message, style: const TextStyle(fontSize: 17)),
-        TextButton(
+        Semantics(
+            liveRegion: _announceMessage,
+            child: Text(_message, style: const TextStyle(fontSize: 17))),
+        _gated(TextButton(
             onPressed: _busy
                 ? null
                 : () async {
@@ -843,9 +950,10 @@ class _FamilyPageState extends State<FamilyPage> {
                       setState(() {
                         _count = 0;
                         _message = 'Pendaftaran dibatalkan.';
+                        _announceMessage = true;
                       });
                   },
-            child: const Text('Batalkan pendaftaran')),
+            child: const Text('Batalkan pendaftaran'))),
         const Divider(height: 32),
         if (_profiles.isEmpty) const Text('Belum ada keluarga terdaftar.'),
         for (final profile in _profiles)
